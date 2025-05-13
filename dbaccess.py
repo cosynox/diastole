@@ -16,7 +16,7 @@ def getDB():
 
 def get_personal_info(conn, userid):
     cur = conn.cursor()
-    cur.execute("SELECT firstname, lastname, birthday FROM users WHERE id = ?", (userid,))
+    cur.execute("SELECT firstname, lastname, birthday, body_height FROM users WHERE id = ?", (userid,))
     rows = cur.fetchall()
     if len(rows) > 0:
         result = {}
@@ -32,6 +32,10 @@ def get_personal_info(conn, userid):
             result["birthday"] = rows[0]["birthday"]
         else:
             result["birthday"] = ""
+        try:
+            result["body_height"] = int( rows[0]["body_height"] )
+        except (ValueError, TypeError):
+            result["body_height"] = 0
         return result
     else:
         return {}
@@ -44,8 +48,9 @@ def set_personal_info(conn, info):
         """UPDATE users \
         SET firstname = ?, \
         lastname = ?, \
-        birthday = ? \
-        WHERE id = ?""", (info["firstname"], info["lastname"], info["birthday"], info["id"],))
+        birthday = ?, \
+        body_height = ? \
+        WHERE id = ?""", (info["firstname"], info["lastname"], info["birthday"], info["body_height"], info["id"],))
     except sqlite3.OperationalError:
         rval = False
     except sqlite3.IntegrityError:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-10 01:46+0200\n"
+"POT-Creation-Date: 2025-05-14 01:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "diastolic blood pressure"
 msgstr ""
 
-#: evaluate.py:202 pdftable.py:63
+#: evaluate.py:202 pdftable.py:64
 msgid "pulse"
 msgstr ""
 
@@ -109,67 +109,67 @@ msgstr ""
 msgid "userid not found"
 msgstr ""
 
-#: pdftable.py:19 templates/bpchart.html:9
+#: pdftable.py:20 templates/bpchart.html:9
 msgid "Blood pressure chart"
 msgstr ""
 
-#: pdftable.py:25
+#: pdftable.py:26
 msgid "Last name :"
 msgstr ""
 
-#: pdftable.py:29
+#: pdftable.py:30
 msgid "Date of birth :"
 msgstr ""
 
-#: pdftable.py:34
+#: pdftable.py:35
 msgid "First name :"
 msgstr ""
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "date"
 msgstr ""
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "time"
 msgstr ""
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "systolic"
 msgstr ""
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "diastolic"
 msgstr ""
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "remarks"
 msgstr ""
 
-#: record.py:75 record.py:147 record.py:176
+#: record.py:84 record.py:167 record.py:201
 msgid "Edit"
 msgstr ""
 
-#: record.py:86
+#: record.py:96
 msgid "Invalid systolic value"
 msgstr ""
 
-#: record.py:91
+#: record.py:101
 msgid "Invalid diastolic value"
 msgstr ""
 
-#: record.py:96
+#: record.py:106
 msgid "Invalid pulse value"
 msgstr ""
 
-#: record.py:105
+#: record.py:115
 msgid "Invalid Date/Time format"
 msgstr ""
 
-#: record.py:123
+#: record.py:133
 msgid "Dataset and user do not fit"
 msgstr ""
 
-#: record.py:197
+#: record.py:231
 msgid "New"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Diastolic BP Min:"
 msgstr ""
 
-#: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:40
+#: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:38
 msgid "Evaluation"
 msgstr ""
 
@@ -281,32 +281,32 @@ msgstr ""
 msgid "Blood"
 msgstr ""
 
-#: templates/layout.html:30
+#: templates/layout.html:29
 msgid "pressure"
 msgstr ""
 
-#: templates/layout.html:31
+#: templates/layout.html:29
 msgid "chart"
 msgstr ""
 
-#: templates/layout.html:38
+#: templates/layout.html:36
 msgid "Personal info"
 msgstr ""
 
-#: templates/layout.html:39
+#: templates/layout.html:37
 msgid "Record data"
 msgstr ""
 
-#: templates/layout.html:43
+#: templates/layout.html:41
 msgid "Log Out"
 msgstr ""
 
-#: templates/layout.html:47 templates/record.html:4 templates/register.html:4
+#: templates/layout.html:45 templates/record.html:4 templates/register.html:4
 #: templates/register.html:11 templates/register.html:44
 msgid "Register"
 msgstr ""
 
-#: templates/layout.html:48 templates/login.html:4 templates/login.html:10
+#: templates/layout.html:46 templates/login.html:4 templates/login.html:10
 #: templates/login.html:20
 msgid "Log In"
 msgstr ""
@@ -335,11 +335,15 @@ msgstr ""
 msgid "Date of birth : "
 msgstr ""
 
-#: templates/personal.html:44
+#: templates/personal.html:41
+msgid "Body height"
+msgstr ""
+
+#: templates/personal.html:52
 msgid "Update personal information"
 msgstr ""
 
-#: templates/personal.html:54
+#: templates/personal.html:62
 msgid "Change Password"
 msgstr ""
 
@@ -388,15 +392,15 @@ msgstr ""
 msgid "Remarks : "
 msgstr ""
 
-#: templates/record.html:93
+#: templates/record.html:95
 msgid "Save Record"
 msgstr ""
 
-#: templates/record.html:96
+#: templates/record.html:98
 msgid "New Form"
 msgstr ""
 
-#: templates/record.html:99
+#: templates/record.html:101
 msgid "Delete"
 msgstr ""
 

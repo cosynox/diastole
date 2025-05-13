@@ -18,6 +18,10 @@ def edit_personal_info():
         personal["firstname"] = request.form.get("firstname")
         personal["lastname"] = request.form.get("lastname")
         personal["birthday"] = request.form.get("birthday")
+        try:
+            personal["body_height"] = int(request.form.get("body_height"))
+        except (ValueError, TypeError):
+            personal["body_height"] = 0
         set_personal_info(conn, personal)
     # User reached route via GET (as by clicking a link or via redirect)
     # or it falls through after POST

@@ -4,8 +4,11 @@ CREATE TABLE users (
     pwhash TEXT NOT NULL,
     firstname TEXT,
     lastname TEXT,
-    birthday TEXT
-    );
+    birthday TEXT,
+    body_height INTEGER DEFAULT 0,
+    last_login TEXT DEFAULT current_timestamp,
+    retries INTEGER DEFAULT 0 );
+
 CREATE UNIQUE INDEX username ON users (username);
 CREATE TABLE measurements (
     id  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -17,3 +20,10 @@ CREATE TABLE measurements (
     remarks TEXT);
 CREATE INDEX userid ON measurements (userid);
 CREATE INDEX date ON measurements(mdate);
+
+CREATE TABLE weights (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    userid INTEGER NOT NULL,
+    body_weight INTEGER DEFAULT 0 );
+
+CREATE INDEX user2 ON weights (userid);
