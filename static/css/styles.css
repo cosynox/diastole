@@ -1,0 +1,191 @@
+/*
+    CSS File to style my Homepage
+*/
+
+* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.red {
+    color: #ea433b;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.left
+{
+    text-align: left;
+}
+
+.right
+{
+    text-align: right;
+}
+.large                  /* these definitions I have left */
+                        /* as a reference */
+{
+    font-size: 24pt;
+    line-height: 43pt;
+}
+
+.medium
+{
+    font-size: 12pt;
+    line-height: 22pt;
+}
+
+.small
+{
+    font-size:8pt;
+    line-height: 16pt;
+}
+
+/*
+    Bootstrap destroys all my formatting...
+    I am not even able to determine the font.
+    I'll use it only for this exercise.
+*/
+pre
+{
+    overflow-y:hidden;                  /* this is because bootstrap causes a */
+                                        /* big mess in my code tags */
+    box-shadow: none;
+    border: none;
+    font-family: "Courier New",monospace;
+    font-size:initial;
+    color: #800000;
+    padding: initial auto;
+    line-height: initial;
+}
+
+header
+{
+    font-size: 24pt;
+    line-height: 43pt; /* 1.5 rows spaced */
+    margin-bottom: 43pt;
+}
+
+main
+{
+    font-size: 12pt;
+    line-height: 22pt; /* 1.5 rows spaced */
+    margin-bottom: 22pt;
+}
+
+footer
+{
+    font-size: 12pt;
+    line-height: 16pt; /* single spaced */
+}
+
+code
+{
+    overflow-y:hidden;                      /* this is because bootstrap */
+    font-family: "Courier New",monospace;   /* makes a scrollbar and makes some */
+    font-size: 12pt;                        /* mess with my code */
+    line-height: 14pt;
+    margin-bottom: 22pt;
+    color: #800000;
+    padding-top: 14pt;
+    padding-right: 12pt;
+    padding-bottom: 14pt;
+    padding-left: 48pt;
+}
+
+body
+{
+    font-family: Helvetica, sans-serif;
+    color: #000;
+    background-color: white;
+    margin: 0;
+    width: 21cm;                    /* here I set the limit of with */
+    padding: 1cm;                   /* to be an A4-page */
+    margin: 1cm auto;
+
+}
+
+ul
+{
+    margin-bottom: 22pt;
+}
+
+ul[class]
+{
+    background-color: #E5E4E2; /* unordered lists get a platinum
+                                    background */
+}
+
+ul[class="menu"]
+{
+    width: 240pt;               /* around menüs there shall be a */
+    font-size: 12pt;            /* box. the background is inherited */
+    line-height: 15pt;          /* the rows shall be single spaced */
+    border: 1pt solid;
+    list-style-type: '➡️ ';     /* and I make fun with emojis */
+}
+
+li[class="a"]
+{
+    color: #FF0000;
+    list-style-type: '🔝 '; /* the a element in a list gets an arrow */
+                            /* to the top of the document */
+}
+
+a:hover
+{
+    background-color: yellow; /* show a yellow background when hovered */
+}
+
+
+a[class="grayed"]
+{
+    color: silver          /* the text of a menu shall be grayed when */
+                             /* it makes no sense to click it*/
+}
+
+address[class]
+{
+    font-size: 12pt;
+    line-height: 22pt; /* 1.5 rows spaced */
+}
+
+address[class="small"]
+{
+    font-size:8pt;
+    line-height: 10pt; /* single spaced */
+}
+
+h4
+{
+    margin-top: 32pt;
+}
+
+p[class="small"]
+{
+    font-size:8pt;
+    line-height: 10pt; /* single spaced */
+}
+

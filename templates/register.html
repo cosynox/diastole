@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ _('Register') }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <p>
+            <h2>
+                {{ _('Register') }}
+            </h2>
+        </p>
+        <form action="/diastole/register" method = "post">
+            <div class="row">
+                <div class="col-md-4 text-md-end">
+                    <label for="username">{{ _('Username') }}:</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="text" class="form-control" id="username" name="username" required autofocus autocomplete="off" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-md-end">
+                    <label for="password">{{ _('Password') }}:</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="password" class="form-control" id="password" name="password"  required  autocomplete="off" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4  text-md-end">
+                    <label for="confirmation">{{ _('Please confirm your password') }}:</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="password"  class="form-control" id="confirmation" name="confirmation" required autocomplete="off" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-md-end">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <button type="submit"  class="form-control" value="Register">{{ _('Register') }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

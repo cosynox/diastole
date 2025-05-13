@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ _('change password') }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <p>
+            <h2>
+                {{ _('change password') }}
+            </h2>
+        </p>
+        <form action="/diastole/newpassword" method = "post">
+            <div class="row">
+                <div class="col-md-4 text-md-end">
+                    <label for="password">{{ _('new password') }}:</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="password" class="form-control" id="password" name="password"  required  autofocus autocomplete="off" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4  text-md-end">
+                    <label for="confirmation">{{ _('Please confirm your password') }}:</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="password"  class="form-control" id="confirmation" name="confirmation" required autocomplete="off" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-md-end">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <button type="submit"  class="form-control" value="Change">{{ _('change password') }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,409 @@
+# German translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-10 01:46+0200\n"
+"PO-Revision-Date: 2025-05-09 19:52+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: evaluate.py:90
+msgid "undefined"
+msgstr "unbestimmt"
+
+#: evaluate.py:92
+msgid "low"
+msgstr "Niedrig"
+
+#: evaluate.py:94
+msgid "optimal"
+msgstr "Optimal"
+
+#: evaluate.py:96
+msgid "normal"
+msgstr "Normal"
+
+#: evaluate.py:98
+msgid "high-normal"
+msgstr "Hoch-Normal"
+
+#: evaluate.py:100
+msgid "grade 1 (mild hypertonia)"
+msgstr "Grad 1 (milder Bluthochdruck)"
+
+#: evaluate.py:102
+msgid "grade 2 (moderate hypertonia)"
+msgstr "Grad 2 (moderater Bluthochdruck)"
+
+#: evaluate.py:104
+msgid "grade 3 (severe hypertonia)"
+msgstr "Grad 3 (schwerer Bluthochdruck)"
+
+#: evaluate.py:198
+msgid "systolic blood pressure"
+msgstr "Systolischer Blutdruck"
+
+#: evaluate.py:200
+msgid "diastolic blood pressure"
+msgstr "Diastolischer Blutdruck"
+
+#: evaluate.py:202 pdftable.py:63
+msgid "pulse"
+msgstr "Puls"
+
+#: evaluate.py:204
+msgid "Date"
+msgstr "Datum"
+
+#: evaluate.py:205
+msgid "mmHg and Pulse"
+msgstr "mmHg und Puls"
+
+#: login.py:12 login.py:47
+msgid "must provide username"
+msgstr "Benutzername erforderlich"
+
+#: login.py:16 login.py:62 login.py:113
+msgid "must provide password"
+msgstr "Passwort erforderlich"
+
+#: login.py:30
+msgid "invalid username and/or password"
+msgstr "Ungültiger Benutzername und/oder Passwort"
+
+#: login.py:56
+msgid "username is already registered"
+msgstr "Benutzername ist bereits registriert"
+
+#: login.py:65 login.py:116
+msgid "empty password not allowed"
+msgstr "Leeres Passwort nicht erlaubt"
+
+#: login.py:71 login.py:122
+msgid "must provide confirmation of password"
+msgstr "Bestätigung des Passwortes erforderlich"
+
+#: login.py:74 login.py:125
+msgid "Your password and the confirmation do not match"
+msgstr "Passwort und Bestätigung passen nicht zusammen"
+
+#: login.py:93
+msgid "session data corrupted"
+msgstr ""
+
+#: login.py:104
+msgid "duplicate userid"
+msgstr ""
+
+#: login.py:106
+msgid "userid not found"
+msgstr ""
+
+#: pdftable.py:19 templates/bpchart.html:9
+msgid "Blood pressure chart"
+msgstr "Blutdrucktabelle"
+
+#: pdftable.py:25
+msgid "Last name :"
+msgstr "Nachname :"
+
+#: pdftable.py:29
+msgid "Date of birth :"
+msgstr "Geburtsdatum :"
+
+#: pdftable.py:34
+msgid "First name :"
+msgstr "Vorname   :"
+
+#: pdftable.py:63
+msgid "date"
+msgstr "Datum"
+
+#: pdftable.py:63
+msgid "time"
+msgstr "Zeit"
+
+#: pdftable.py:63
+msgid "systolic"
+msgstr "systolisch"
+
+#: pdftable.py:63
+msgid "diastolic"
+msgstr "diastolisch"
+
+#: pdftable.py:63
+msgid "remarks"
+msgstr "Bemerkungen"
+
+#: record.py:75 record.py:147 record.py:176
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: record.py:86
+msgid "Invalid systolic value"
+msgstr "ungültiger systolischer Wert"
+
+#: record.py:91
+msgid "Invalid diastolic value"
+msgstr "ungültiger diastolischer Wert"
+
+#: record.py:96
+msgid "Invalid pulse value"
+msgstr "Ungültiger Puls-Wert"
+
+#: record.py:105
+msgid "Invalid Date/Time format"
+msgstr "Ungültiges Datum/Zeit Format"
+
+#: record.py:123
+msgid "Dataset and user do not fit"
+msgstr "Datensatz und Benutzer passen nicht"
+
+#: record.py:197
+msgid "New"
+msgstr "Neue"
+
+#: templates/bpchart.html:13 templates/evaluate.html:13
+msgid "Date from : "
+msgstr "ab Datum : "
+
+#: templates/bpchart.html:21 templates/evaluate.html:21
+msgid "Date until : "
+msgstr "bis Datum : "
+
+#: templates/bpchart.html:32 templates/evaluate.html:32
+msgid "Filter"
+msgstr "Filtern"
+
+#: templates/bpchart.html:40
+msgid "Download as PDF-File"
+msgstr "Download als PDF-Datei"
+
+#: templates/bpchart.html:50
+msgid "Last name: "
+msgstr "Nachname: "
+
+#: templates/bpchart.html:59
+msgid "Date of birth: "
+msgstr "Geburtsdatum:"
+
+#: templates/bpchart.html:67
+msgid "First name: "
+msgstr "Vorname :"
+
+#: templates/bpchart.html:84
+msgid "Date "
+msgstr "Datum"
+
+#: templates/bpchart.html:87
+msgid "Time "
+msgstr "Zeit"
+
+#: templates/bpchart.html:90
+msgid "Systole "
+msgstr "systolisch"
+
+#: templates/bpchart.html:93
+msgid "Diastole"
+msgstr "diastolisch"
+
+#: templates/bpchart.html:96
+msgid "Pulse"
+msgstr "Puls"
+
+#: templates/bpchart.html:99
+msgid "Remarks"
+msgstr "Bemerkungen"
+
+#: templates/bpchart.html:128
+msgid "Systolic BP Min:"
+msgstr "Systole Min:"
+
+#: templates/bpchart.html:132 templates/bpchart.html:140
+msgid "Average:"
+msgstr "Durchschnitt:"
+
+#: templates/bpchart.html:136
+msgid "Diastolic BP Min:"
+msgstr "Diastole Min:"
+
+#: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:40
+msgid "Evaluation"
+msgstr "Auswertung"
+
+#: templates/evaluate.html:40
+msgid "Last name:"
+msgstr "Nachname:"
+
+#: templates/evaluate.html:49
+msgid "Date of birth:"
+msgstr "Geburtsdatum:"
+
+#: templates/evaluate.html:57
+msgid "First name:"
+msgstr "Vorname :"
+
+#: templates/evaluate.html:72
+msgid "Blood pressure diagram"
+msgstr "Blutdruck-Diagramm"
+
+#: templates/evaluate.html:80
+msgid "Systolic BP Min :"
+msgstr "Systole Min:"
+
+#: templates/evaluate.html:84 templates/evaluate.html:92
+msgid "Average : "
+msgstr "Durchschnitt:"
+
+#: templates/evaluate.html:88
+msgid "Diastolic BP Min :"
+msgstr "Diastole Min:"
+
+#: templates/evaluate.html:96
+msgid "Category : "
+msgstr "Kategorie :"
+
+#: templates/layout.html:21
+msgid "Blood pressure chart:"
+msgstr "Blutdruck-Tabelle: "
+
+#: templates/layout.html:29
+msgid "Blood"
+msgstr "Blut"
+
+#: templates/layout.html:30
+msgid "pressure"
+msgstr "druck"
+
+#: templates/layout.html:31
+msgid "chart"
+msgstr "tabelle"
+
+#: templates/layout.html:38
+msgid "Personal info"
+msgstr "Persönliches"
+
+#: templates/layout.html:39
+msgid "Record data"
+msgstr "Messung aufzeichnen"
+
+#: templates/layout.html:43
+msgid "Log Out"
+msgstr "Ausloggen"
+
+#: templates/layout.html:47 templates/record.html:4 templates/register.html:4
+#: templates/register.html:11 templates/register.html:44
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/layout.html:48 templates/login.html:4 templates/login.html:10
+#: templates/login.html:20
+msgid "Log In"
+msgstr "Einloggen"
+
+#: templates/login.html:15 templates/register.html:17
+msgid "Username"
+msgstr "Benutzername"
+
+#: templates/login.html:18 templates/register.html:25
+msgid "Password"
+msgstr "Passwort"
+
+#: templates/personal.html:4 templates/personal.html:11
+msgid "Personal Information"
+msgstr "Persönliche Informationen"
+
+#: templates/personal.html:17
+msgid "First name : "
+msgstr "Vorname :"
+
+#: templates/personal.html:25
+msgid "Last name : "
+msgstr "Nachname :"
+
+#: templates/personal.html:33 templates/record.html:19
+msgid "Date of birth : "
+msgstr "Geburtsdatum :"
+
+#: templates/personal.html:44
+msgid "Update personal information"
+msgstr "Speichern"
+
+#: templates/personal.html:54
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+#: templates/pwchange.html:4 templates/pwchange.html:11
+#: templates/pwchange.html:36
+msgid "change password"
+msgstr "Passwort ändern"
+
+#: templates/pwchange.html:17
+msgid "new password"
+msgstr "Neues Passwort"
+
+#: templates/pwchange.html:25 templates/register.html:33
+msgid "Please confirm your password"
+msgstr "Passwort Wiederholung"
+
+#: templates/record.html:11
+msgid "Record measurement"
+msgstr "Messung aufzeichnen"
+
+#: templates/record.html:26
+msgid "Record"
+msgstr "Messung"
+
+#: templates/record.html:35
+msgid "Date :"
+msgstr "Datum :"
+
+#: templates/record.html:44
+msgid "Time :"
+msgstr "Uhrzeit :"
+
+#: templates/record.html:53
+msgid "systolic blood pressure : "
+msgstr "systolischer Blutdruck :"
+
+#: templates/record.html:61
+msgid "diastolic blood pressure : "
+msgstr "diastolischer Blutdruck :"
+
+#: templates/record.html:69
+msgid "Pulse : "
+msgstr "Puls"
+
+#: templates/record.html:77
+msgid "Remarks : "
+msgstr "Bemerkungen"
+
+#: templates/record.html:93
+msgid "Save Record"
+msgstr "Speichern"
+
+#: templates/record.html:96
+msgid "New Form"
+msgstr "Neue Messung"
+
+#: templates/record.html:99
+msgid "Delete"
+msgstr "Löschen"
+
+#~ msgid "Username : "
+#~ msgstr "Benutzername:"
+
+#~ msgid "Password : "
+#~ msgstr "Passwort:"
+

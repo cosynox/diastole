@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ _('Personal Information') }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <p>
+            <h2>
+                {{ _('Personal Information') }}
+            </h2>
+        </p>
+        <form action="/diastole/personal" method = "post">
+            <div class="row  form-group">
+                <div class="col-md-3  col-form-label text-md-end">
+                    <label for="firstname">{{ _('First name : ') }}</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="text"  class="form-control" id="firstname" name="firstname" autofocus autocomplete="off" value="{{ personal.firstname }}" />
+                </div>
+            </div>
+            <div class="row  form-group">
+                <div class="col-md-3  col-form-label text-md-end">
+                    <label for="lastname">{{ _('Last name : ') }}</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="text"  class="form-control" id="lastname" name="lastname" autocomplete="off" value="{{ personal.lastname }}"/>
+                </div>
+            </div>
+            <div class="row  form-group">
+                <div class="col-md-3  col-form-label text-md-end">
+                    <label for="birthday">{{ _('Date of birth : ') }}</label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="date"  class="form-control" id="birthday" name="birthday" autocomplete="off" value="{{ personal.birthday }}"/>
+                </div>
+            </div>
+            <div class="row  form-group">
+                <div class="col-md-3 text-md-end">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <button type="submit"  class="form-control" value="Update">{{ _('Update personal information') }}</button>
+                </div>
+            </div>
+        </form>
+        <form action="/diastole/newpassword" method = "get">
+            <div class="row ">
+                <div class="col-md-3 text-md-end">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <button type="submit"  class="form-control" value="Change">{{ _('Change Password') }}...</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}
