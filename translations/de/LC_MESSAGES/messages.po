@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 15:38+0200\n"
+"POT-Creation-Date: 2025-05-14 17:06+0200\n"
 "PO-Revision-Date: 2025-05-09 19:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: evaluate.py:90 weight_evaluate.py:91
 msgid "undefined"
@@ -58,7 +58,7 @@ msgstr "Systolischer Blutdruck"
 msgid "diastolic blood pressure"
 msgstr "Diastolischer Blutdruck"
 
-#: evaluate.py:202 pdftable.py:64 weight_evaluate.py:203
+#: evaluate.py:202 pdftable.py:68 weight_evaluate.py:203
 msgid "pulse"
 msgstr "Puls"
 
@@ -110,11 +110,6 @@ msgstr ""
 msgid "userid not found"
 msgstr ""
 
-#: pdftable.py:20 templates/bpchart.html:4 templates/bpchart.html:9
-#: templates/weight_layout.html:38
-msgid "Blood pressure chart"
-msgstr "Blutdrucktabelle"
-
 #: pdftable.py:26
 msgid "Last name :"
 msgstr "Nachname :"
@@ -127,25 +122,38 @@ msgstr "Geburtsdatum :"
 msgid "First name :"
 msgstr "Vorname   :"
 
-#: pdftable.py:64
+#: pdftable.py:63 templates/bpchart.html:4 templates/bpchart.html:9
+#: templates/weight_layout.html:38
+msgid "Blood pressure chart"
+msgstr "Blutdrucktabelle"
+
+#: pdftable.py:68 pdftable.py:145
 msgid "date"
 msgstr "Datum"
 
-#: pdftable.py:64
+#: pdftable.py:68 pdftable.py:145
 msgid "time"
 msgstr "Zeit"
 
-#: pdftable.py:64
+#: pdftable.py:68
 msgid "systolic"
 msgstr "systolisch"
 
-#: pdftable.py:64
+#: pdftable.py:68
 msgid "diastolic"
 msgstr "diastolisch"
 
-#: pdftable.py:64
+#: pdftable.py:68 pdftable.py:145
 msgid "remarks"
 msgstr "Bemerkungen"
+
+#: pdftable.py:141
+msgid "Body weight chart"
+msgstr "Gewichtstabelle"
+
+#: pdftable.py:145
+msgid "body weight"
+msgstr "Körpergewicht"
 
 #: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
 #: weight.py:201 weight_record.py:78 weight_record.py:146
@@ -177,9 +185,8 @@ msgid "New"
 msgstr "Neu"
 
 #: weight_record.py:90
-#, fuzzy
 msgid "Invalid weight value"
-msgstr "Ungültiger Puls-Wert"
+msgstr "Ungültige Gewichtsangabe"
 
 #: templates/bpchart.html:13 templates/evaluate.html:13
 #: templates/weight_chart.html:13 templates/weight_evaluate.html:13
@@ -436,7 +443,6 @@ msgid "Body weight"
 msgstr "Körpergewicht"
 
 #: templates/weight_chart.html:116
-#
 msgid "Body weight Min:"
 msgstr "Gewicht Min:"
 

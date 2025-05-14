@@ -14,7 +14,7 @@ from dbaccess import getDB, \
                     getDate, date_format, time_format, \
                     weight2int
 
-from pdftable import gen_pdfchart
+from pdftable import gen_pdf_weight_chart
 
 def weight_chart():
     """ Generate a Body weight chart
@@ -44,8 +44,8 @@ def weight_chart():
     else:
         status = request.args.get("status")
         weights = get_weights(conn, userid, None)
-    flweight = round(float(weight2int(weights[0]["body_weight"]) / 100.0),2)
     if len(weights) > 0:
+        flweight = round(float(weight2int(weights[0]["body_weight"]) / 100.0),2)
         minweight = flweight 
         maxweight = flweight
     else:
@@ -71,18 +71,7 @@ def weight_chart():
     # do something
     conn.close()
     if status == "pdf":
-        return apology("TODO", 400)
-#        return gen_pdfchart(personal, 
-#                           measurements,
-#                           minsystole,
-#                           maxsystole,
-#                           mindiastole,
-#                           maxdiastole,
-#                           minpulse,
-#                            maxpulse,
-#                           avgsystole,
-#                           avgdiastole,
-#                           avgpulse)
+        return gen_pdf_weight_chart(personal,  weights)
     else:   
         return render_template( "weight_chart.html",                             
                            personal = personal,

@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 15:38+0200\n"
+"POT-Creation-Date: 2025-05-14 17:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: evaluate.py:90 weight_evaluate.py:91
 msgid "undefined"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "diastolic blood pressure"
 msgstr ""
 
-#: evaluate.py:202 pdftable.py:64 weight_evaluate.py:203
+#: evaluate.py:202 pdftable.py:68 weight_evaluate.py:203
 msgid "pulse"
 msgstr ""
 
@@ -109,11 +109,6 @@ msgstr ""
 msgid "userid not found"
 msgstr ""
 
-#: pdftable.py:20 templates/bpchart.html:4 templates/bpchart.html:9
-#: templates/weight_layout.html:38
-msgid "Blood pressure chart"
-msgstr ""
-
 #: pdftable.py:26
 msgid "Last name :"
 msgstr ""
@@ -126,24 +121,37 @@ msgstr ""
 msgid "First name :"
 msgstr ""
 
-#: pdftable.py:64
+#: pdftable.py:63 templates/bpchart.html:4 templates/bpchart.html:9
+#: templates/weight_layout.html:38
+msgid "Blood pressure chart"
+msgstr ""
+
+#: pdftable.py:68 pdftable.py:145
 msgid "date"
 msgstr ""
 
-#: pdftable.py:64
+#: pdftable.py:68 pdftable.py:145
 msgid "time"
 msgstr ""
 
-#: pdftable.py:64
+#: pdftable.py:68
 msgid "systolic"
 msgstr ""
 
-#: pdftable.py:64
+#: pdftable.py:68
 msgid "diastolic"
 msgstr ""
 
-#: pdftable.py:64
+#: pdftable.py:68 pdftable.py:145
 msgid "remarks"
+msgstr ""
+
+#: pdftable.py:141
+msgid "Body weight chart"
+msgstr ""
+
+#: pdftable.py:145
+msgid "body weight"
 msgstr ""
 
 #: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
