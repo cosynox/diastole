@@ -11,7 +11,9 @@ CREATE TABLE weights (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     userid INTEGER NOT NULL,
     mdate TEXT NOT NULL DEFAULT current_timestamp,
-    body_weight INTEGER DEFAULT 0 );
+    body_weight INTEGER DEFAULT 0, 
+    remarks TEXT default ""
+    );
 
 CREATE INDEX user2 ON weights (userid);
 CREATE INDEX mdate2 ON weights (mdate);
