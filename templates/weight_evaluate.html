@@ -7,7 +7,7 @@
 {% block main %}
     <div class="container">
         <h3>{{ _('Evaluation') }}</h3>
-        <form action="/diastole/evaluation" method = "post">
+        <form action="/weight/evaluation" method = "post">
             <div class="form-group row">
                 <div class="col-sm-4 col-form-label  text-md-end">
                     <label for="datefrom">{{ _('Date from : ') }} </label>
@@ -69,32 +69,26 @@
             </div>
         </div>
                 <h4>
-                    {{ _("Blood pressure diagram") }}
+                    {{ _("Weight diagram") }}
                 </h4>
                 <p>
-                    <img alt = "blood pressure diagram" src={{ dataplot }} 
+                    <img alt = "weight diagram" src={{ dataplot }} 
                     >
                 </p>
         <table class="table">
             <tr>
-                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Systolic BP Min :') }}</td>
-                <td class="border-0 text-end">{{ minsystole }} mmHg</td>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Weight Min.') }} : </td>
+                <td class="border-0 text-end">{{ minweight }} kg</td>
                 <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
-                <td class="border-0 text-end">{{ maxsystole }} mmHg</td>
-                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average : ') }}</td>
-                <td class="border-0 text-end">{{ avgsystole }} mmHg</td>
+                <td class="border-0 text-end">{{ maxweight }} kg</td>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average') }} : </td>
+                <td class="border-0 text-end">{{ avgweight }} kg</td>
             </tr>
             <tr>
-                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Diastolic BP Min :') }}</td>
-                <td class="border-0 text-end">{{ mindiastole }} mmHg</td>
-                <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
-                <td class="border-0 text-end">{{ maxdiastole }} mmHg</td>
-                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average : ') }}</td>
-                <td class="border-0 text-end">{{ avgdiastole }} mmHg</td>
-            </tr>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Category : ') }}</td>
-                <td class="border-0 text-start"colspan="5" >{{ category }} </td>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Category') }} : </td>
+                <td class="border-0 text-start"colspan="3" >{{ category }} </td>
+                <td class="border-0 fw-bold text-end" colspan="2">{{ _('BMI') }} {{ _('current') }} :</td>
+                <td class="border-0 text-start"colspan="2" >{{ bmi }}</td>
             </tr>
         </table>
         <hr>

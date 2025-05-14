@@ -55,12 +55,16 @@ def weight_record():
                         return record_weight_new()
 
             weight = {}
-            weight["id"] = mdata["id"]
-            weight["userid"] = mdata["userid"]
-            weight["mdate"] = mdata["mdate"]
-            weight["body_weight"] = mdata["body_weight"]
-            weight["remarks"] = mdata["remarks"]
-            weight["mtime"] = mdata["mtime"]
+            try:
+                weight["id"] = mdata["id"]
+                weight["userid"] = mdata["userid"]
+                weight["mdate"] = mdata["mdate"]
+                weight["body_weight"] = mdata["body_weight"]
+                weight["remarks"] = mdata["remarks"]
+                weight["mtime"] = mdata["mtime"]               
+            except IndexError:
+                conn.close()
+                return record_weight_new()
             active = {}
             if is_first_weight(conn,userid,weight["id"]):
                 active["previous"] = False

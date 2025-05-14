@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 17:06+0200\n"
+"POT-Creation-Date: 2025-05-14 18:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: evaluate.py:90 weight_evaluate.py:91
+#: evaluate.py:90 weight_evaluate.py:73
 msgid "undefined"
 msgstr ""
 
-#: evaluate.py:92 weight_evaluate.py:93
+#: evaluate.py:92
 msgid "low"
 msgstr ""
 
-#: evaluate.py:94 weight_evaluate.py:95
+#: evaluate.py:94
 msgid "optimal"
 msgstr ""
 
-#: evaluate.py:96 weight_evaluate.py:97
+#: evaluate.py:96
 msgid "normal"
 msgstr ""
 
-#: evaluate.py:98 weight_evaluate.py:99
+#: evaluate.py:98
 msgid "high-normal"
 msgstr ""
 
-#: evaluate.py:100 weight_evaluate.py:101
+#: evaluate.py:100
 msgid "grade 1 (mild hypertonia)"
 msgstr ""
 
-#: evaluate.py:102 weight_evaluate.py:103
+#: evaluate.py:102
 msgid "grade 2 (moderate hypertonia)"
 msgstr ""
 
-#: evaluate.py:104 weight_evaluate.py:105
+#: evaluate.py:104
 msgid "grade 3 (severe hypertonia)"
 msgstr ""
 
-#: evaluate.py:198 weight_evaluate.py:199
+#: evaluate.py:198
 msgid "systolic blood pressure"
 msgstr ""
 
-#: evaluate.py:200 weight_evaluate.py:201
+#: evaluate.py:200
 msgid "diastolic blood pressure"
 msgstr ""
 
-#: evaluate.py:202 pdftable.py:68 weight_evaluate.py:203
+#: evaluate.py:202 pdftable.py:68
 msgid "pulse"
 msgstr ""
 
-#: evaluate.py:204 templates/weight_record.html:35 weight_evaluate.py:205
+#: evaluate.py:204 templates/weight_record.html:35 weight_evaluate.py:166
 msgid "Date"
 msgstr ""
 
-#: evaluate.py:205 weight_evaluate.py:206
+#: evaluate.py:205
 msgid "mmHg and Pulse"
 msgstr ""
 
@@ -150,12 +150,12 @@ msgstr ""
 msgid "Body weight chart"
 msgstr ""
 
-#: pdftable.py:145
+#: pdftable.py:145 weight_evaluate.py:164
 msgid "body weight"
 msgstr ""
 
 #: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
-#: weight.py:201 weight_record.py:78 weight_record.py:146
+#: weight.py:201 weight_record.py:82 weight_record.py:150
 msgid "Edit"
 msgstr ""
 
@@ -171,19 +171,47 @@ msgstr ""
 msgid "Invalid pulse value"
 msgstr ""
 
-#: record.py:115 weight.py:115 weight_record.py:99
+#: record.py:115 weight.py:115 weight_record.py:103
 msgid "Invalid Date/Time format"
 msgstr ""
 
-#: record.py:133 weight.py:133 weight_record.py:117
+#: record.py:133 weight.py:133 weight_record.py:121
 msgid "Dataset and user do not fit"
 msgstr ""
 
-#: record.py:231 weight.py:231 weight_record.py:179
+#: record.py:231 weight.py:231 weight_record.py:183
 msgid "New"
 msgstr ""
 
-#: weight_record.py:90
+#: weight_evaluate.py:76
+msgid "underweight"
+msgstr ""
+
+#: weight_evaluate.py:78
+msgid "normal weight"
+msgstr ""
+
+#: weight_evaluate.py:80
+msgid "pre obesity"
+msgstr ""
+
+#: weight_evaluate.py:82
+msgid "obesity grade 1"
+msgstr ""
+
+#: weight_evaluate.py:84
+msgid "obesity grade 2"
+msgstr ""
+
+#: weight_evaluate.py:86
+msgid "obesity grade 3"
+msgstr ""
+
+#: weight_evaluate.py:167
+msgid "kg"
+msgstr ""
+
+#: weight_record.py:94
 msgid "Invalid weight value"
 msgstr ""
 
@@ -274,24 +302,23 @@ msgstr ""
 msgid "First name:"
 msgstr ""
 
-#: templates/evaluate.html:72 templates/weight_evaluate.html:72
+#: templates/evaluate.html:72
 msgid "Blood pressure diagram"
 msgstr ""
 
-#: templates/evaluate.html:80 templates/weight_evaluate.html:80
+#: templates/evaluate.html:80
 msgid "Systolic BP Min :"
 msgstr ""
 
 #: templates/evaluate.html:84 templates/evaluate.html:92
-#: templates/weight_evaluate.html:84 templates/weight_evaluate.html:92
 msgid "Average : "
 msgstr ""
 
-#: templates/evaluate.html:88 templates/weight_evaluate.html:88
+#: templates/evaluate.html:88
 msgid "Diastolic BP Min :"
 msgstr ""
 
-#: templates/evaluate.html:96 templates/weight_evaluate.html:96
+#: templates/evaluate.html:96
 msgid "Category : "
 msgstr ""
 
@@ -443,6 +470,30 @@ msgstr ""
 
 #: templates/weight_chart.html:116
 msgid "Body weight Min:"
+msgstr ""
+
+#: templates/weight_evaluate.html:72
+msgid "Weight diagram"
+msgstr ""
+
+#: templates/weight_evaluate.html:80
+msgid "Weight Min."
+msgstr ""
+
+#: templates/weight_evaluate.html:84
+msgid "Average"
+msgstr ""
+
+#: templates/weight_evaluate.html:88
+msgid "Category"
+msgstr ""
+
+#: templates/weight_evaluate.html:90
+msgid "BMI"
+msgstr ""
+
+#: templates/weight_evaluate.html:90
+msgid "current"
 msgstr ""
 
 #: templates/weight_layout.html:36 templates/weight_record.html:4
