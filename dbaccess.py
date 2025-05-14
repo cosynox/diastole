@@ -231,14 +231,239 @@ def get_weights(conn, userid, filter):
         for row in rows:
             nrow = {}
             nrow["misodate"] = row["mdate"]
-            nrow["mdate"] = getDate( row["mdate"] )
             nrow["mtime"] = getTime( row["mdate"] )
-            nrow["body_weight"] = row["body_weight"]
+            nrow["mdate"] = getDate( row["mdate"] )
+            nrow["body_weight"] = int2weight(row["body_weight"])
             nrow["remarks"] = row["remarks"]
             result.append(nrow)
         return result
     else:
         return []
+
+def get_last_weight(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   ORDER BY id DESC LIMIT 1""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_weight"] = int2weight(rows[0]["body_weight"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def get_first_weight(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   ORDER BY id ASC LIMIT 1""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_weight"] = int2weight(rows[0]["body_weight"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def get_next_weight(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND id > ? \
+                   ORDER BY id ASC LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_weight"] = int2weight(rows[0]["body_weight"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return get_last_weight(conn,userid)
+
+def get_previous_weight(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND id < ? \
+                   ORDER BY id DESC LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_weight"] = int2weight(rows[0]["body_weight"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return get_first_measurement(conn,userid)
+
+def get_this_weight(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND id = ? LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_weight"] = int2weight(rows[0]["body_weight"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def is_first_weight(conn, userid, recordId):
+    mdata = get_first_weight(conn,userid)
+    result = True
+    if mdata == None:
+        result = True
+    elif mdata["id"] == recordId:
+        result = True
+    else:
+        result = False
+    return result
+
+def is_last_weight(conn, userid, recordId):
+    mdata = get_last_weight(conn,userid)
+    result = True
+    if mdata == None:
+        result = True
+    elif mdata["id"] == recordId:
+        result = True
+    else:
+        result = False
+    return result
+
+def get_weight_five(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   ORDER BY id DESC LIMIT 5""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        result = []
+        for row in rows:
+            nrow = {}
+            nrow["misodate"] = row["mdate"]
+            nrow["mtime"] = getTime( row["mdate"] )
+            nrow["mdate"] = getDate( row["mdate"] )
+            nrow["body_weight"] = int2weight(row["body_weight"])
+            nrow["remarks"] = row["remarks"]
+            result.append(nrow)
+        return result
+    else:
+        return []
+
+
+def append_weight(conn, userid, info):
+    cur = conn.cursor()
+    rval = True
+    mdate = makeISODate( info["mdate"], info["mtime"])
+    try:
+        cur.execute(
+        """INSERT INTO weights \
+        ( userid, mdate, body_weight, remarks ) \
+        VALUES ( ?, ?, ?, ? )""",
+         (userid, mdate, weight2int(info["body_weight"]), info["remarks"],))
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def is_weight( conn, userid, dataset_id ):
+    cur = conn.cursor()
+    cur.execute("""SELECT id FROM weights \
+                   WHERE id = ? \
+                   AND userid = ?""", (dataset_id, userid) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        return True
+    else:
+        return False
+
+def update_weight(conn, userid, info):
+    cur = conn.cursor()
+    rval = True
+    mdate = makeISODate( info["mdate"], info["mtime"])
+    try:
+        cur.execute(
+        """UPDATE weights \
+        SET mdate = ?, \
+            body_weight = ?, \
+            remarks = ? \
+        WHERE userid = ? \
+        AND id = ?""", \
+        (mdate, weight2int(info["body_weight"]), info["remarks"], \
+         userid, info["id"],) )
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def delete_weight(conn, userid, recordId):
+    cur = conn.cursor()
+    rval = True
+    try:
+        cur.execute(
+        """DELETE FROM weights \
+        WHERE id = ?
+        AND userid = ? LIMIT 1""",
+        (recordId, userid,) )
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def weight2int( weight ):
+    try:
+        intweight = int(round(float(weight.replace(',', '.')),2) * 100) 
+    except (ValueError, TypeError):
+        intweight = 0
+    return intweight
+
+def int2weight( iweight ):
+    flweight = round( iweight / 100.0, 2)
+    weight = f"{flweight}"
+    if "de" in get_locale():
+        weight.replace('.', ',')
+    return weight
 
 
 def makeISODate ( mdate, mtime ):

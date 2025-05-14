@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <form action="/diastole/record" method = "post">
+        <form action="/weight/record" method = "post">
             <div class="row form-group">
                 <div class="col-md-6 form-group text-md-end">
-                    <div class="red">{{ dstatus }} {{ _('Weight') }}</div>
+                    <div class="red">{{ _('Weight') }} {{ dstatus }}</div>
                 </div>
                 <div class="col-md-4 text-md-end">
                     &nbsp;
@@ -51,7 +51,7 @@
                     <label for="mdate">{{ _('Body weight') }} in kg : </label>
                 </div>
                 <div class="col-md-4 text-md-start">
-                    <input type="number"  class="form-control" id="body_weight" name="body_weight" maxlength="3" autofocus autocomplete="off" value="{{ measurement.systole }}" />
+                    <input type="text"  class="form-control" id="body_weight" name="body_weight" autofocus autocomplete="off" value="{{ weight.body_weight }}" />
                 </div>
             </div>
             <div class="row form-group">
@@ -59,7 +59,7 @@
                     <label for="remarks">{{ _('Remarks') }} : </label>
                 </div>
                 <div class="col-md-5 text-md-start">
-                    <input type="text"  class="form-control" id="remarks" name="remarks" maxlength="20" autocomplete="off" value="{{ measurement.remarks }}"/>
+                    <input type="text"  class="form-control" id="remarks" name="remarks" maxlength="20" autocomplete="off" value="{{ weight.remarks }}"/>
                 </div>
             </div>
             <div class="row form-group">

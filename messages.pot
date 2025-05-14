@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 03:51+0200\n"
+"POT-Creation-Date: 2025-05-14 15:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.10.3\n"
 
 #: evaluate.py:90 weight_evaluate.py:91
 msgid "undefined"
@@ -110,7 +110,7 @@ msgid "userid not found"
 msgstr ""
 
 #: pdftable.py:20 templates/bpchart.html:4 templates/bpchart.html:9
-#: templates/weight_layout.html:39
+#: templates/weight_layout.html:38
 msgid "Blood pressure chart"
 msgstr ""
 
@@ -147,32 +147,36 @@ msgid "remarks"
 msgstr ""
 
 #: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
-#: weight.py:201 weight_record.py:85 weight_record.py:168 weight_record.py:202
+#: weight.py:201 weight_record.py:78 weight_record.py:146
 msgid "Edit"
 msgstr ""
 
-#: record.py:96 weight.py:96 weight_record.py:97
+#: record.py:96 weight.py:96
 msgid "Invalid systolic value"
 msgstr ""
 
-#: record.py:101 weight.py:101 weight_record.py:102
+#: record.py:101 weight.py:101
 msgid "Invalid diastolic value"
 msgstr ""
 
-#: record.py:106 weight.py:106 weight_record.py:107
+#: record.py:106 weight.py:106
 msgid "Invalid pulse value"
 msgstr ""
 
-#: record.py:115 weight.py:115 weight_record.py:116
+#: record.py:115 weight.py:115 weight_record.py:99
 msgid "Invalid Date/Time format"
 msgstr ""
 
-#: record.py:133 weight.py:133 weight_record.py:134
+#: record.py:133 weight.py:133 weight_record.py:117
 msgid "Dataset and user do not fit"
 msgstr ""
 
-#: record.py:231 weight.py:231 weight_record.py:232
+#: record.py:231 weight.py:231 weight_record.py:179
 msgid "New"
+msgstr ""
+
+#: weight_record.py:90
+msgid "Invalid weight value"
 msgstr ""
 
 #: templates/bpchart.html:13 templates/evaluate.html:13
@@ -246,7 +250,7 @@ msgstr ""
 
 #: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:38
 #: templates/weight_evaluate.html:4 templates/weight_evaluate.html:9
-#: templates/weight_layout.html:38
+#: templates/weight_layout.html:37
 msgid "Evaluation"
 msgstr ""
 
@@ -295,11 +299,11 @@ msgstr ""
 msgid "pressure"
 msgstr ""
 
-#: templates/layout.html:29 templates/weight_layout.html:29
+#: templates/layout.html:29
 msgid "chart"
 msgstr ""
 
-#: templates/layout.html:36 templates/weight_layout.html:36
+#: templates/layout.html:36
 msgid "Personal info"
 msgstr ""
 
@@ -307,23 +311,22 @@ msgstr ""
 msgid "Record data"
 msgstr ""
 
-#: templates/layout.html:39 templates/weight_layout.html:29
-#: templates/weight_record.html:26
+#: templates/layout.html:39 templates/weight_record.html:26
 msgid "Weight"
 msgstr ""
 
-#: templates/layout.html:42 templates/weight_layout.html:42
+#: templates/layout.html:42 templates/weight_layout.html:41
 msgid "Log Out"
 msgstr ""
 
 #: templates/layout.html:46 templates/register.html:4
 #: templates/register.html:11 templates/register.html:44
-#: templates/weight_layout.html:46
+#: templates/weight_layout.html:45
 msgid "Register"
 msgstr ""
 
 #: templates/layout.html:47 templates/login.html:4 templates/login.html:10
-#: templates/login.html:20 templates/weight_layout.html:47
+#: templates/login.html:20 templates/weight_layout.html:46
 msgid "Log In"
 msgstr ""
 
@@ -421,8 +424,9 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: templates/weight_chart.html:9
-msgid "Body weight chart"
+#: templates/weight_chart.html:4 templates/weight_chart.html:9
+#: templates/weight_layout.html:21 templates/weight_layout.html:29
+msgid "Weight chart"
 msgstr ""
 
 #: templates/weight_chart.html:90 templates/weight_record.html:51
@@ -433,11 +437,7 @@ msgstr ""
 msgid "Body weight Min:"
 msgstr ""
 
-#: templates/weight_layout.html:21
-msgid "Weight chart:"
-msgstr ""
-
-#: templates/weight_layout.html:37 templates/weight_record.html:4
+#: templates/weight_layout.html:36 templates/weight_record.html:4
 #: templates/weight_record.html:11
 msgid "Record Weighing"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 03:51+0200\n"
+"POT-Creation-Date: 2025-05-14 15:38+0200\n"
 "PO-Revision-Date: 2025-05-09 19:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.10.3\n"
 
 #: evaluate.py:90 weight_evaluate.py:91
 msgid "undefined"
@@ -111,7 +111,7 @@ msgid "userid not found"
 msgstr ""
 
 #: pdftable.py:20 templates/bpchart.html:4 templates/bpchart.html:9
-#: templates/weight_layout.html:39
+#: templates/weight_layout.html:38
 msgid "Blood pressure chart"
 msgstr "Blutdrucktabelle"
 
@@ -148,33 +148,38 @@ msgid "remarks"
 msgstr "Bemerkungen"
 
 #: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
-#: weight.py:201 weight_record.py:85 weight_record.py:168 weight_record.py:202
+#: weight.py:201 weight_record.py:78 weight_record.py:146
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: record.py:96 weight.py:96 weight_record.py:97
+#: record.py:96 weight.py:96
 msgid "Invalid systolic value"
 msgstr "ungültiger systolischer Wert"
 
-#: record.py:101 weight.py:101 weight_record.py:102
+#: record.py:101 weight.py:101
 msgid "Invalid diastolic value"
 msgstr "ungültiger diastolischer Wert"
 
-#: record.py:106 weight.py:106 weight_record.py:107
+#: record.py:106 weight.py:106
 msgid "Invalid pulse value"
 msgstr "Ungültiger Puls-Wert"
 
-#: record.py:115 weight.py:115 weight_record.py:116
+#: record.py:115 weight.py:115 weight_record.py:99
 msgid "Invalid Date/Time format"
 msgstr "Ungültiges Datum/Zeit Format"
 
-#: record.py:133 weight.py:133 weight_record.py:134
+#: record.py:133 weight.py:133 weight_record.py:117
 msgid "Dataset and user do not fit"
 msgstr "Datensatz und Benutzer passen nicht"
 
-#: record.py:231 weight.py:231 weight_record.py:232
+#: record.py:231 weight.py:231 weight_record.py:179
 msgid "New"
-msgstr "Neue"
+msgstr "Neu"
+
+#: weight_record.py:90
+#, fuzzy
+msgid "Invalid weight value"
+msgstr "Ungültiger Puls-Wert"
 
 #: templates/bpchart.html:13 templates/evaluate.html:13
 #: templates/weight_chart.html:13 templates/weight_evaluate.html:13
@@ -247,7 +252,7 @@ msgstr "Diastole Min:"
 
 #: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:38
 #: templates/weight_evaluate.html:4 templates/weight_evaluate.html:9
-#: templates/weight_layout.html:38
+#: templates/weight_layout.html:37
 msgid "Evaluation"
 msgstr "Auswertung"
 
@@ -296,11 +301,11 @@ msgstr "Blut"
 msgid "pressure"
 msgstr "druck"
 
-#: templates/layout.html:29 templates/weight_layout.html:29
+#: templates/layout.html:29
 msgid "chart"
 msgstr "tabelle"
 
-#: templates/layout.html:36 templates/weight_layout.html:36
+#: templates/layout.html:36
 msgid "Personal info"
 msgstr "Persönliches"
 
@@ -308,23 +313,22 @@ msgstr "Persönliches"
 msgid "Record data"
 msgstr "Messung"
 
-#: templates/layout.html:39 templates/weight_layout.html:29
-#: templates/weight_record.html:26
+#: templates/layout.html:39 templates/weight_record.html:26
 msgid "Weight"
 msgstr "Gewicht"
 
-#: templates/layout.html:42 templates/weight_layout.html:42
+#: templates/layout.html:42 templates/weight_layout.html:41
 msgid "Log Out"
 msgstr "Ausloggen"
 
 #: templates/layout.html:46 templates/register.html:4
 #: templates/register.html:11 templates/register.html:44
-#: templates/weight_layout.html:46
+#: templates/weight_layout.html:45
 msgid "Register"
 msgstr "Registrieren"
 
 #: templates/layout.html:47 templates/login.html:4 templates/login.html:10
-#: templates/login.html:20 templates/weight_layout.html:47
+#: templates/login.html:20 templates/weight_layout.html:46
 msgid "Log In"
 msgstr "Einloggen"
 
@@ -422,29 +426,24 @@ msgstr "Neue Messung"
 msgid "Delete"
 msgstr "Löschen"
 
-#: templates/weight_chart.html:9
-#, fuzzy
-msgid "Body weight chart"
+#: templates/weight_chart.html:4 templates/weight_chart.html:9
+#: templates/weight_layout.html:21 templates/weight_layout.html:29
+msgid "Weight chart"
 msgstr "Gewichtstabelle"
 
 #: templates/weight_chart.html:90 templates/weight_record.html:51
-#, fuzzy
 msgid "Body weight"
-msgstr "Gewicht"
+msgstr "Körpergewicht"
 
 #: templates/weight_chart.html:116
-#, fuzzy
+#
 msgid "Body weight Min:"
 msgstr "Gewicht Min:"
 
-#: templates/weight_layout.html:21
-msgid "Weight chart:"
-msgstr "Gewichtstabelle"
-
-#: templates/weight_layout.html:37 templates/weight_record.html:4
+#: templates/weight_layout.html:36 templates/weight_record.html:4
 #: templates/weight_record.html:11
 msgid "Record Weighing"
-msgstr "Aufzeichen"
+msgstr "Gewicht aufzeichnen"
 
 #: templates/weight_record.html:43
 msgid "Time"
@@ -453,6 +452,9 @@ msgstr "Zeit"
 #: templates/weight_record.html:77
 msgid "Save Weight"
 msgstr "Speichern"
+
+#~ msgid "Body weight chart"
+#~ msgstr "Gewichtstabelle"
 
 #~ msgid "Username : "
 #~ msgstr "Benutzername:"

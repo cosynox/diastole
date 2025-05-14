@@ -1,12 +1,12 @@
 {% extends "weight_layout.html" %}
 
 {% block title %}
-    _('Body weight chart') chart
+    {{ _("Weight chart") }}
 {% endblock %}
 
 {% block main %}
     <div class="container">
-        <h3>{{ _('Body weight chart') }}</h3>
+        <h3>{{ _("Weight chart") }}</h3>
         <form action="/diastole" method = "post">
             <div class="form-group row">
                 <div class="col-sm-4 col-form-label text-md-end">
@@ -103,7 +103,7 @@
                         {{ item["mtime"] }}
                     </td>
                     <td colspan="2" class="text-end">
-                        {{ item["body_weight"] }}
+                        {{ item["body_weight"] }} kg
                     </td>
                     <td colspan="3" class="text-start">
                         {{ item["remarks"] }}

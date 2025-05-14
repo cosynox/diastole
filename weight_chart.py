@@ -11,7 +11,8 @@ from dbaccess import getDB, \
                     get_weights, \
                     makeISODate, \
                     getTime, \
-                    getDate, date_format, time_format
+                    getDate, date_format, time_format, \
+                    weight2int
 
 from pdftable import gen_pdfchart
 
@@ -43,10 +44,10 @@ def weight_chart():
     else:
         status = request.args.get("status")
         weights = get_weights(conn, userid, None)
-
+    flweight = round(float(weight2int(weights[0]["body_weight"]) / 100.0),2)
     if len(weights) > 0:
-        minweight = weights[0]["body_weight"]
-        maxweight = weights[0]["body_weight"]
+        minweight = flweight 
+        maxweight = flweight
     else:
         minweight = 0
         maxweight = 0
@@ -55,16 +56,18 @@ def weight_chart():
     for data in weights:
         data["mdate"] = date_format(data["mdate"])
         data["mtime"] = time_format(data["mtime"])
-        if minweight > data["body_weight"]:
-            minweight = data["body_weight"]
-        if maxweight < data["body_weight"]:
-            maxweight = data["body_weight"]    
-        sumweight += data["body_weight"]
+        wgt = round(float(weight2int(data["body_weight"]) /100.0),2)
+        if minweight > wgt:
+            minweight = wgt
+        if maxweight < wgt:
+            maxweight = wgt    
+        sumweight += wgt
         n += 1
     if n > 0:
-        avgweight = int(round(sumweight / n ,0))
+        avgweight = round(sumweight / n ,2)
     else:
         avgweight = 0
+    
     # do something
     conn.close()
     if status == "pdf":
