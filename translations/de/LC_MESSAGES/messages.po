@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-10 01:46+0200\n"
+"POT-Creation-Date: 2025-05-14 01:48+0200\n"
 "PO-Revision-Date: 2025-05-09 19:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -58,7 +58,7 @@ msgstr "Systolischer Blutdruck"
 msgid "diastolic blood pressure"
 msgstr "Diastolischer Blutdruck"
 
-#: evaluate.py:202 pdftable.py:63
+#: evaluate.py:202 pdftable.py:64
 msgid "pulse"
 msgstr "Puls"
 
@@ -110,67 +110,67 @@ msgstr ""
 msgid "userid not found"
 msgstr ""
 
-#: pdftable.py:19 templates/bpchart.html:9
+#: pdftable.py:20 templates/bpchart.html:9
 msgid "Blood pressure chart"
 msgstr "Blutdrucktabelle"
 
-#: pdftable.py:25
+#: pdftable.py:26
 msgid "Last name :"
 msgstr "Nachname :"
 
-#: pdftable.py:29
+#: pdftable.py:30
 msgid "Date of birth :"
 msgstr "Geburtsdatum :"
 
-#: pdftable.py:34
+#: pdftable.py:35
 msgid "First name :"
 msgstr "Vorname   :"
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "date"
 msgstr "Datum"
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "time"
 msgstr "Zeit"
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "systolic"
 msgstr "systolisch"
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "diastolic"
 msgstr "diastolisch"
 
-#: pdftable.py:63
+#: pdftable.py:64
 msgid "remarks"
 msgstr "Bemerkungen"
 
-#: record.py:75 record.py:147 record.py:176
+#: record.py:84 record.py:167 record.py:201
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: record.py:86
+#: record.py:96
 msgid "Invalid systolic value"
 msgstr "ungültiger systolischer Wert"
 
-#: record.py:91
+#: record.py:101
 msgid "Invalid diastolic value"
 msgstr "ungültiger diastolischer Wert"
 
-#: record.py:96
+#: record.py:106
 msgid "Invalid pulse value"
 msgstr "Ungültiger Puls-Wert"
 
-#: record.py:105
+#: record.py:115
 msgid "Invalid Date/Time format"
 msgstr "Ungültiges Datum/Zeit Format"
 
-#: record.py:123
+#: record.py:133
 msgid "Dataset and user do not fit"
 msgstr "Datensatz und Benutzer passen nicht"
 
-#: record.py:197
+#: record.py:231
 msgid "New"
 msgstr "Neue"
 
@@ -238,7 +238,7 @@ msgstr "Durchschnitt:"
 msgid "Diastolic BP Min:"
 msgstr "Diastole Min:"
 
-#: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:40
+#: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:38
 msgid "Evaluation"
 msgstr "Auswertung"
 
@@ -282,32 +282,32 @@ msgstr "Blutdruck-Tabelle: "
 msgid "Blood"
 msgstr "Blut"
 
-#: templates/layout.html:30
+#: templates/layout.html:29
 msgid "pressure"
 msgstr "druck"
 
-#: templates/layout.html:31
+#: templates/layout.html:29
 msgid "chart"
 msgstr "tabelle"
 
-#: templates/layout.html:38
+#: templates/layout.html:36
 msgid "Personal info"
 msgstr "Persönliches"
 
-#: templates/layout.html:39
+#: templates/layout.html:37
 msgid "Record data"
 msgstr "Messung aufzeichnen"
 
-#: templates/layout.html:43
+#: templates/layout.html:41
 msgid "Log Out"
 msgstr "Ausloggen"
 
-#: templates/layout.html:47 templates/record.html:4 templates/register.html:4
+#: templates/layout.html:45 templates/record.html:4 templates/register.html:4
 #: templates/register.html:11 templates/register.html:44
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/layout.html:48 templates/login.html:4 templates/login.html:10
+#: templates/layout.html:46 templates/login.html:4 templates/login.html:10
 #: templates/login.html:20
 msgid "Log In"
 msgstr "Einloggen"
@@ -336,11 +336,15 @@ msgstr "Nachname :"
 msgid "Date of birth : "
 msgstr "Geburtsdatum :"
 
-#: templates/personal.html:44
+#: templates/personal.html:41
+msgid "Body height"
+msgstr "Körpergröße"
+
+#: templates/personal.html:52
 msgid "Update personal information"
 msgstr "Speichern"
 
-#: templates/personal.html:54
+#: templates/personal.html:62
 msgid "Change Password"
 msgstr "Passwort ändern"
 
@@ -389,15 +393,15 @@ msgstr "Puls"
 msgid "Remarks : "
 msgstr "Bemerkungen"
 
-#: templates/record.html:93
+#: templates/record.html:95
 msgid "Save Record"
 msgstr "Speichern"
 
-#: templates/record.html:96
+#: templates/record.html:98
 msgid "New Form"
 msgstr "Neue Messung"
 
-#: templates/record.html:99
+#: templates/record.html:101
 msgid "Delete"
 msgstr "Löschen"
 
