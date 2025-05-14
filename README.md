@@ -1,4 +1,4 @@
-# Manage blood pressure data and produce blood pressure chart
+# Manage blood pressure and weight and produce charts
 #### Video Demo:  https://youtu.be/aa_QreF2KcI
 ## Description:
     The program delivers a structure to record the data of
