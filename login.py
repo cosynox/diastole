@@ -1,3 +1,4 @@
+from time import sleep
 from flask import redirect, render_template, request, session
 from flask_babel import lazy_gettext as _l
 from dbaccess import getDB
@@ -20,12 +21,19 @@ def user_login():
 
         # Query database for username
         username = request.form.get("username")
-        cur.execute("SELECT id, pwhash FROM users WHERE username = ?", (username,))
+        cur.execute("SELECT id, pwhash, retries FROM users WHERE username = ?", (username,))
         rows = cur.fetchall()
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(
             rows[0][1], request.form.get("password")
         ):
+            if len(rows) == 1:
+                if rows[0][2] > 0:
+                    sleep(5*rows[0][2]) # make retries slower and slower
+                retries = rows[0][2] + 1               
+                cur.execute( "UPDATE users SET retries = ? WHERE id = ? LIMIT 1", (retries,rows[0][0],))
+                conn.commit()
+            conn.close()
             return apology(_l("invalid username and/or password"), 400)
         
         cur.execute("UPDATE users SET retries = 0, last_login = current_timestamp WHERE id = ? LIMIT 1", (rows[0][0],)) 
