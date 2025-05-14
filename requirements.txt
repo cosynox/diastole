@@ -4,4 +4,6 @@ pytz
 requests
 matplotlib
 flask-babel
+fpdf2
+
 
