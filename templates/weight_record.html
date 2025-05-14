@@ -1,14 +1,14 @@
-{% extends "layout.html" %}
+{% extends "weight_layout.html" %}
 
 {% block title %}
-    {{ _('Record measurement') }}
+    {{ _('Record Weighing') }}
 {% endblock %}
 
 {% block main %}
     <div class="container">
         <p>
             <h2>
-                {{ _('Record measurement') }}
+                {{ _('Record Weighing') }}
             </h2>
         </p>
         <div class="row">
@@ -23,58 +23,40 @@
         <form action="/diastole/record" method = "post">
             <div class="row form-group">
                 <div class="col-md-6 form-group text-md-end">
-                    <div class="red">{{ dstatus }} {{ _('Record') }}</div>
+                    <div class="red">{{ dstatus }} {{ _('Weight') }}</div>
                 </div>
                 <div class="col-md-4 text-md-end">
                     &nbsp;
-                    <input type="hidden" id="recordId" name="recordId" value="{{ measurement.id }}" />
+                    <input type="hidden" id="recordId" name="recordId" value="{{ weight.id }}" />
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-md-6 col-form-label text-md-end">
-                    <label for="mdate">{{ _('Date :') }}
-                    </label>
+                    <label for="mdate">{{ _('Date') }} : </label>
                 </div>
                 <div class="col-md-4 text-md-start">
-                    <input type="date"  class="form-control" id="mdate" name="mdate" maxlength="10" autofocus autocomplete="off" value="{{ measurement.mdate }}" />
+                    <input type="date"  class="form-control" id="mdate" name="mdate" maxlength="10" autofocus autocomplete="off" value="{{ weight.mdate }}" />
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-md-6 col-form-label text-md-end">
-                        <label for="mtime">{{ _('Time :') }}
-                        </label>
+                        <label for="mtime">{{ _('Time') }} : </label>
                 </div>
                 <div class="col-md-4 text-md-start">
-                    <input type="time"  class="form-control" id="mtime" name="mtime" maxlength="5" autofocus autocomplete="off" value="{{ measurement.mtime }}" />
+                    <input type="time"  class="form-control" id="mtime" name="mtime" maxlength="5" autofocus autocomplete="off" value="{{ weight.mtime }}" />
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-md-6 col-form-label text-md-end">
-                    <label for="mdate">{{ _('systolic blood pressure : ') }}</label>
+                    <label for="mdate">{{ _('Body weight') }} in kg : </label>
                 </div>
                 <div class="col-md-4 text-md-start">
-                    <input type="number"  class="form-control" id="systole" name="systole" maxlength="3" autofocus autocomplete="off" value="{{ measurement.systole }}" />
+                    <input type="number"  class="form-control" id="body_weight" name="body_weight" maxlength="3" autofocus autocomplete="off" value="{{ measurement.systole }}" />
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-md-6 col-form-label text-md-end">
-                    <label for="diastole">{{ _('diastolic blood pressure : ') }}</label>
-                </div>
-                <div class="col-md-4 text-md-start">
-                    <input type="number"  class="form-control" id="diastole" name="diastole" maxlength="3" autofocus autocomplete="off" value="{{ measurement.diastole }}" />
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-6 col-form-label text-md-end">
-                    <label for="pulse">{{ _('Pulse : ') }}</label>
-                </div>
-                <div class="col-md-4 text-md-start">
-                    <input type="number"  class="form-control" id="pulse" name="pulse" maxlength="3" autofocus autocomplete="off" value="{{ measurement.pulse }}" />
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-6 col-form-label text-md-end">
-                    <label for="remarks">{{ _('Remarks : ') }}</label>
+                    <label for="remarks">{{ _('Remarks') }} : </label>
                 </div>
                 <div class="col-md-5 text-md-start">
                     <input type="text"  class="form-control" id="remarks" name="remarks" maxlength="20" autocomplete="off" value="{{ measurement.remarks }}"/>
@@ -92,7 +74,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-3 text-md-start">
-                    <button type="submit"  class="form-control" name="status" value="save">{{ _('Save Record') }}</button>
+                    <button type="submit"  class="form-control" name="status" value="save">{{ _('Save Weight') }}</button>
                 </div>
                 <div class="col-md-3 text-md-start">
                     <button type="submit"  class="form-control" name="status" value="new">{{ _('New Form') }}</button>

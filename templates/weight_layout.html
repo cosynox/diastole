@@ -18,15 +18,15 @@
             <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
             <link rel="manifest" href="/static/images/site.webmanifest">
             <link href="/static/static/images/favicon.ico" rel="icon">
-        <title>{{ _("Blood pressure chart:") }}  {% block title %}{% endblock %}</title>
+        <title>{{ _("Weight chart:") }}  {% block title %}{% endblock %}</title>
     </head>
 
     <body>
 
         <nav class="bg-light border navbar navbar-expand-md navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/diastole">
-                    <span class="red">{{ _("Blood") }}</span><span class="green">{{ _("pressure") }}</span><span class="blue">{{ _("chart") }}</span></a>
+                <a class="navbar-brand" href="/weight">
+                    <span class="green">{{ _("Weight") }}</span><span class="blue">{{ _("chart") }}</span></a>
                 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,9 +34,9 @@
                     {% if session["user_id"] %}
                         <ul class="navbar-nav me-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="/diastole/personal">{{ _('Personal info') }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/diastole/record">{{ _('Record data') }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/diastole/evaluation">{{ _('Evaluation') }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/weight">{{ _('Weight') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/weight/record">{{ _('Record Weighing') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/weight/evaluation">{{ _('Evaluation') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/diastole">{{ _('Blood pressure chart') }}</a></li>
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="/diastole/logout">{{ _("Log Out") }}</a></li>

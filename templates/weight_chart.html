@@ -1,12 +1,12 @@
-{% extends "layout.html" %}
+{% extends "weight_layout.html" %}
 
 {% block title %}
-    {{ _('Blood pressure chart') }}
+    _('Body weight chart') chart
 {% endblock %}
 
 {% block main %}
     <div class="container">
-        <h3>{{ _('Blood pressure chart') }}</h3>
+        <h3>{{ _('Body weight chart') }}</h3>
         <form action="/diastole" method = "post">
             <div class="form-group row">
                 <div class="col-sm-4 col-form-label text-md-end">
@@ -87,13 +87,7 @@
                     {{ _('Time ') }}
                 </th>
                 <th colspan="2" class="text-end">
-                    {{ _('Systole ') }}
-                </th>
-                <th colspan="2" class="text-end">
-                    {{ _('Diastole') }}
-                </th>
-                <th colspan="2" class="text-end">
-                    {{ _('Pulse') }}
+                    {{ _('Body weight') }}
                 </th>
                 <th colspan="3" class="text-start">
                     {{ _('Remarks') }}
@@ -109,13 +103,7 @@
                         {{ item["mtime"] }}
                     </td>
                     <td colspan="2" class="text-end">
-                        {{ item["systole"] }}
-                    </td>
-                    <td colspan="2" class="text-end">
-                        {{ item["diastole"] }}
-                    </td>
-                    <td colspan="2" class="text-end">
-                        {{ item["pulse"] }}
+                        {{ item["body_weight"] }}
                     </td>
                     <td colspan="3" class="text-start">
                         {{ item["remarks"] }}
@@ -125,20 +113,12 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Systolic BP Min:') }}</td>
-                    <td class="border-0 text-end">{{ minsystole }} mmHg</td>
+                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Body weight Min:') }}</td>
+                    <td class="border-0 text-end">{{ minweight }} kg</td>
                     <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
-                    <td class="border-0 text-end">{{ maxsystole }} mmHg</td>
+                    <td class="border-0 text-end">{{ maxweight }} kg</td>
                     <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average:') }}</td>
-                    <td class="border-0 text-end">{{ avgsystole }} mmHg</td>
-                </tr>
-                <tr>
-                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Diastolic BP Min:') }}</td>
-                    <td class="border-0 text-end">{{ mindiastole }} mmHg</td>
-                    <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
-                    <td class="border-0 text-end">{{ maxdiastole }} mmHg</td>
-                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average:') }}</td>
-                    <td class="border-0 text-end">{{ avgdiastole }} mmHg</td>
+                    <td class="border-0 text-end">{{ avgweight }} kg</td>
                 </tr>
             </tfoot>
         </table>

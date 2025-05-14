@@ -3,18 +3,18 @@ import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from flask_babel import Babel, lazy_gettext as _l
-from helpers import login_required, usd
+from helpers import login_required
 from personal import edit_personal_info
 from bpchart import blood_pressure_chart
 from record import record_measurement, record_measurement_new
 from evaluate import evaluate_measurements, plotdata
 from login import user_login, user_register, user_pwchange
-
+from weight_chart import weight_chart
+from weight_evaluate import weight_evaluation
+from weight_record import weight_record
 
 # Configure application
 app = Flask(__name__)
-# Custom filter
-app.jinja_env.filters["usd"] = usd
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -57,6 +57,21 @@ def personal():
         and let it be edited
     """
     return edit_personal_info()
+
+@app.route("/weight", methods=["GET", "POST"])
+@login_required
+def weightchart():
+    return weight_chart()
+
+@app.route("/weight/record", methods=["GET", "POST"])
+@login_required
+def weightrecord():
+    return weight_record()
+
+@app.route("/weight/evaluation", methods=["GET", "POST"])
+@login_required
+def weightevaluation():
+    return weight_evaluation()
 
 @app.route("/diastole/record", methods=["GET", "POST"])
 @login_required
