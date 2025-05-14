@@ -235,6 +235,27 @@
     trend line that can show whether the values are eventually 
     rising or falling.
 
+
+    The same is for weights.
+
+    The body mass index is calculated according to the formula:
+        bmi = body weight / (body height * body height)
+    
+    Limits for weight
+    
+    Category                        BMI
+    underweight                    < 18.5
+    normal weight                  18.5 - 24.9
+    overweight                     >= 25
+    pre obesity                    25 - 29.9
+    obesity grade 1                30 - 34.9
+    obesity grade 2                35 - 39.9
+    obesity grade 3                >= 40
+
+    source: https://adipositas-gesellschaft.de/ueber-adipositas/definition-von-adipositas/
+
+    
+
 ## Used libraries
     The program will be implemented with python, flask and sqlite3
     database. There shall be no reference to the cs50 module. The
