@@ -22,13 +22,15 @@ def user_login():
         username = request.form.get("username")
         cur.execute("SELECT id, pwhash FROM users WHERE username = ?", (username,))
         rows = cur.fetchall()
-        conn.close()
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(
             rows[0][1], request.form.get("password")
         ):
             return apology(_l("invalid username and/or password"), 400)
-
+        
+        cur.execute("UPDATE users SET retries = 0, last_login = current_timestamp WHERE id = ? LIMIT 1", (rows[0][0],)) 
+        conn.commit()
+        conn.close()
         # Remember which user has logged in
         session["user_id"] = rows[0][0]
 
