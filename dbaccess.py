@@ -198,6 +198,49 @@ def get_measurements(conn, userid, filter):
     else:
         return []
 
+def get_weights(conn, userid, filter):
+    cur = conn.cursor()
+    if filter == None or \
+        (filter["datefrom"].strip() == "" and filter["dateuntil"].strip() == ""):
+        cur.execute("""SELECT mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   ORDER BY mdate""", (userid,) )
+    elif filter["datefrom"].strip() != "" and filter["dateuntil"].strip() != "" :
+        cur.execute("""SELECT mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND mdate >= ?
+                   AND mdate <= ?
+                   ORDER BY mdate""", (userid,filter["datefrom"], filter["dateuntil"],) )
+    elif filter["datefrom"].strip() != "":
+        cur.execute("""SELECT mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND mdate >= ?
+                   ORDER BY mdate""", (userid,filter["datefrom"],) )
+    elif filter["dateuntil"].strip() != "":
+        cur.execute("""SELECT mdate, body_weight, remarks \
+                   FROM weights \
+                   WHERE userid = ? \
+                   AND mdate <= ?
+                   ORDER BY mdate""", (userid,filter["dateuntil"],) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        result = []
+        for row in rows:
+            nrow = {}
+            nrow["misodate"] = row["mdate"]
+            nrow["mdate"] = getDate( row["mdate"] )
+            nrow["mtime"] = getTime( row["mdate"] )
+            nrow["body_weight"] = row["body_weight"]
+            nrow["remarks"] = row["remarks"]
+            result.append(nrow)
+        return result
+    else:
+        return []
+
+
 def makeISODate ( mdate, mtime ):
     try:
         isodate = datetime.fromisoformat(mdate + ' ' + mtime).isoformat(sep=' ')

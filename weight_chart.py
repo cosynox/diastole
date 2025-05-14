@@ -8,7 +8,7 @@ from flask_babel import Babel, lazy_gettext as _l
 from helpers import apology
 from dbaccess import getDB, \
                     get_personal_info, \
-                    get_measurements, \
+                    get_weights, \
                     makeISODate, \
                     getTime, \
                     getDate, date_format, time_format
@@ -18,7 +18,6 @@ from pdftable import gen_pdfchart
 def weight_chart():
     """ Generate a Body weight chart
     """
-    return apology("TODO", 400)
     userid = session["user_id"]
     conn = getDB()
     personal = get_personal_info(conn, userid)
@@ -38,83 +37,54 @@ def weight_chart():
         if len(tmp) > 0:
             filter["dateuntil"] = tmp
 
-        measurements = get_measurements(conn, userid, filter)
+        weights = get_weights(conn, userid, filter)
         status = request.form.get("status")
 
     else:
         status = request.args.get("status")
-        measurements = get_measurements(conn, userid, None)
+        weights = get_weights(conn, userid, None)
 
-    if len(measurements) > 0:
-        minsystole = measurements[0]["systole"]
-        maxsystole = measurements[0]["systole"]
-        mindiastole = measurements[0]["diastole"]
-        maxdiastole = measurements[0]["diastole"]
-        minpulse = measurements[0]["pulse"]
-        maxpulse = measurements[0]["pulse"]
+    if len(weights) > 0:
+        minweight = weights[0]["body_weight"]
+        maxweight = weights[0]["body_weight"]
     else:
-        minsystole = 0
-        maxsystole = 0
-        mindiastole = 0
-        maxdiastole = 0
-        minpulse = 0
-        maxpulse = 0
-    sumsystole = 0
-    sumdiastole = 0
-    sumpulse = 0
+        minweight = 0
+        maxweight = 0
+    sumweight = 0
     n = 0
-    for data in measurements:
+    for data in weights:
         data["mdate"] = date_format(data["mdate"])
         data["mtime"] = time_format(data["mtime"])
-        if minsystole > data["systole"]:
-            minsystole = data["systole"]
-        if maxsystole < data["systole"]:
-            maxsystole = data["systole"]    
-        if mindiastole > data["diastole"]:
-            mindiastole = data["diastole"]
-        if maxdiastole < data["diastole"]:
-            maxdiastole = data["diastole"]    
-        if minpulse > data["pulse"]:
-            minpulse = data["pulse"]
-        if maxpulse < data["pulse"]:
-            maxpulse = data["pulse"]    
-        sumsystole += data["systole"]
-        sumdiastole += data["diastole"]
-        sumpulse += data["pulse"]
+        if minweight > data["body_weight"]:
+            minweight = data["body_weight"]
+        if maxweight < data["body_weight"]:
+            maxweight = data["body_weight"]    
+        sumweight += data["body_weight"]
         n += 1
     if n > 0:
-        avgsystole = int(round(sumsystole / n ,0))
-        avgdiastole = int(round( sumdiastole / n, 0))
-        avgpulse = int(round(sumpulse / n, 0))
+        avgweight = int(round(sumweight / n ,0))
     else:
-        avgsystole = 0
-        avgdiastole = 0
-        avgpulse = 0
+        avgweight = 0
     # do something
     conn.close()
     if status == "pdf":
-        return gen_pdfchart(personal, 
-                            measurements,
-                            minsystole,
-                            maxsystole,
-                            mindiastole,
-                            maxdiastole,
-                            minpulse,
-                            maxpulse,
-                            avgsystole,
-                            avgdiastole,
-                            avgpulse)
+        return apology("TODO", 400)
+#        return gen_pdfchart(personal, 
+#                           measurements,
+#                           minsystole,
+#                           maxsystole,
+#                           mindiastole,
+#                           maxdiastole,
+#                           minpulse,
+#                            maxpulse,
+#                           avgsystole,
+#                           avgdiastole,
+#                           avgpulse)
     else:   
-        return render_template( "bpchart.html",                             
+        return render_template( "weight_chart.html",                             
                            personal = personal,
-                           bpchart = measurements,
+                           weightchart = weights,
                            filter = filter,
-                           minsystole = minsystole, 
-                           maxsystole = maxsystole,
-                           mindiastole = mindiastole,
-                           maxdiastole = maxdiastole,
-                           minpulse = minpulse,
-                           maxpulse = maxpulse,
-                           avgsystole = avgsystole,
-                           avgdiastole = avgdiastole,
-                           avgpulse = avgpulse )
+                           minweight = minweight, 
+                           maxweight = maxweight,
+                           avgweight = avgweight)
