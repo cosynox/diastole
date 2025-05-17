@@ -44,9 +44,15 @@ def weight_evaluation():
     
     weights = get_weights(conn, userid, filter)
     if len(weights) > 0:
-        minweight = float(weights[0]["body_weight"]) 
-        maxweight = minweight
-        lastweight = minweight
+        try:
+            minweight = float(weights[0]["body_weight"]) 
+            maxweight = minweight
+            lastweight = minweight
+        except IndexError:
+            minweight = 0
+            maxweight = 0
+            lastweight = 0
+            
     else:
         minweight = 0
         maxweight = 0
@@ -176,6 +182,10 @@ def weight_plotdata():
 #    return response
 
 def body_mass_index( weight_in_kg, body_height_in_m):
-    bmi = weight_in_kg / float(body_height_in_m * body_height_in_m)
+    try:
+        bmi = weight_in_kg / float(body_height_in_m * body_height_in_m)
+    except ZeroDivisionError:
+        bmi = 0
+
     bmi = round(bmi,1)
     return bmi
