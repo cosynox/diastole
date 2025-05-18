@@ -180,3 +180,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+flask_session/
+diastole.db
+*.db
+
