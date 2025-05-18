@@ -254,7 +254,27 @@
 
     source: https://adipositas-gesellschaft.de/ueber-adipositas/definition-von-adipositas/
 
-    
+
+    The temperature evaluation gives a category of the temperature.
+    These are:
+
+    Limits for temperature in °C
+
+    Category                   Min         Max
+    cold death                            < 20.0
+    maybe deadly cold       >= 20.0       < 27.0
+    hypothermia             >= 27.0       < 33.0
+    under temperature       >= 35.0       < 36.3
+    normal temperature      >= 36.3      <= 37.4
+    increased temperature    > 37.4       < 38.1
+    slight fever            >= 38.1       < 38.6
+    fever                   >= 38.6       < 39.1
+    high fever              >= 39.1       < 40.0
+    very high fever         >= 40.0       < 42.0
+    circulatory collapse    >= 42.0       < 44.0
+    heat death              >= 44.0
+
+    source: https://de.wikipedia.org/wiki/Körpertemperatur
 
 ## Used libraries
     The program will be implemented with python, flask and sqlite3

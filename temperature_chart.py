@@ -62,7 +62,7 @@ def temperature_chart():
         sumtemperature += temperature
         n += 1
     if n > 0:
-        avgtemperature = round(sumtemperature / n ,2)
+        avgtemperature = round(sumtemperature / n ,1)
     else:
         avgtemperature = 0
     

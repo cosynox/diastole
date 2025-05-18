@@ -81,6 +81,31 @@ def temperature_evaluation():
 
     category = _l("undefined")
 
+    if lasttemperature < 20.0:
+        category = _l("cold death")
+    elif lasttemperature < 27.0:
+        category = _l("maybe deadly cold")
+    elif lasttemperature < 33.0:
+        category = _l("hypothermia")
+    elif lasttemperature >= 35.0 and lasttemperature < 36.3: 
+        category = _l("under temperature")
+    elif lasttemperature >= 36.3 and lasttemperature <= 37.4:
+        category = _l("normal temperature") 
+    elif lasttemperature > 37.4 and lasttemperature < 38.1:
+        category = _l("increased temperature")
+    elif lasttemperature >= 38.1 and lasttemperature < 38.6:
+        category = _l("slight fever")
+    elif lasttemperature >= 38.6 and lasttemperature < 39.1:
+        category = _l("fever")
+    elif lasttemperature >= 39.1 and lasttemperature < 40.0:
+        category = _l("high fever")
+    elif lasttemperature >= 40.0 and lasttemperature < 42.0:
+        category = _l("very high fever")
+    elif lasttemperature >= 42.0 and lasttemperature < 44.0:
+        category = _l("circulatory collapse")
+    else:
+        category = _l("heat death, thermal denaturation of proteins")    
+
     conn.close()
     if status == 'pdf':
         return gen_pdftemperaturediagram(personal,  temperatures)
@@ -91,9 +116,9 @@ def temperature_evaluation():
                            personal = personal,
                            filter = filter,
                            category = category,
-                           mintemperature = mintemperature, 
-                           maxtemperature = maxtemperature,
-                           avgtemperature = avgtemperature)
+                           mintemp = mintemperature, 
+                           maxtemp = maxtemperature,
+                           avgtemp = avgtemperature)
 
 def temperature_plotdata():
     userid = session["user_id"]

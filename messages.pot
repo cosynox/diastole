@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-18 23:26+0200\n"
+"POT-Creation-Date: 2025-05-19 01:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,8 +65,8 @@ msgstr ""
 msgid "Blood pressure diagram"
 msgstr ""
 
-#: evaluate.py:211 evaluate.py:325 temperature_evaluate.py:163
-#: temperature_evaluate.py:244 templates/temperature_record.html:35
+#: evaluate.py:211 evaluate.py:325 temperature_evaluate.py:188
+#: temperature_evaluate.py:269 templates/temperature_record.html:35
 #: templates/weight_record.html:35 weight_evaluate.py:180
 #: weight_evaluate.py:269
 msgid "Date"
@@ -209,16 +209,64 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: temperature_evaluate.py:160 temperature_evaluate.py:241
+#: temperature_evaluate.py:85
+msgid "cold death"
+msgstr ""
+
+#: temperature_evaluate.py:87
+msgid "maybe deadly cold"
+msgstr ""
+
+#: temperature_evaluate.py:89
+msgid "hypothermia"
+msgstr ""
+
+#: temperature_evaluate.py:91
+msgid "under temperature"
+msgstr ""
+
+#: temperature_evaluate.py:93
+msgid "normal temperature"
+msgstr ""
+
+#: temperature_evaluate.py:95
+msgid "increased temperature"
+msgstr ""
+
+#: temperature_evaluate.py:97
+msgid "slight fever"
+msgstr ""
+
+#: temperature_evaluate.py:99
+msgid "fever"
+msgstr ""
+
+#: temperature_evaluate.py:101
+msgid "high fever"
+msgstr ""
+
+#: temperature_evaluate.py:103
+msgid "very high fever"
+msgstr ""
+
+#: temperature_evaluate.py:105
+msgid "circulatory collapse"
+msgstr ""
+
+#: temperature_evaluate.py:107
+msgid "heat death, thermal denaturation of proteins"
+msgstr ""
+
+#: temperature_evaluate.py:185 temperature_evaluate.py:266
 msgid "body temperature"
 msgstr ""
 
-#: temperature_evaluate.py:161 temperature_evaluate.py:188
-#: temperature_evaluate.py:243
+#: temperature_evaluate.py:186 temperature_evaluate.py:213
+#: temperature_evaluate.py:268
 msgid "temperature diagram"
 msgstr ""
 
-#: temperature_evaluate.py:164 temperature_evaluate.py:245
+#: temperature_evaluate.py:189 temperature_evaluate.py:270
 msgid "°C"
 msgstr ""
 
