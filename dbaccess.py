@@ -320,7 +320,7 @@ def get_previous_weight(conn, userid, recordId):
         nrow["remarks"] = rows[0]["remarks"]
         return nrow
     else:
-        return get_first_measurement(conn,userid)
+        return get_first_weight(conn,userid)
 
 def get_this_weight(conn, userid, recordId):
     cur = conn.cursor()
@@ -464,6 +464,273 @@ def int2weight( iweight ):
     if "de" in get_locale():
         weight.replace('.', ',')
     return weight
+
+def get_temperatures(conn, userid, filter):
+    cur = conn.cursor()
+    if filter == None or \
+        (filter["datefrom"].strip() == "" and filter["dateuntil"].strip() == ""):
+        cur.execute("""SELECT mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   ORDER BY mdate""", (userid,) )
+    elif filter["datefrom"].strip() != "" and filter["dateuntil"].strip() != "" :
+        cur.execute("""SELECT mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND mdate >= ?
+                   AND mdate <= ?
+                   ORDER BY mdate""", (userid,filter["datefrom"], filter["dateuntil"],) )
+    elif filter["datefrom"].strip() != "":
+        cur.execute("""SELECT mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND mdate >= ?
+                   ORDER BY mdate""", (userid,filter["datefrom"],) )
+    elif filter["dateuntil"].strip() != "":
+        cur.execute("""SELECT mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND mdate <= ?
+                   ORDER BY mdate""", (userid,filter["dateuntil"],) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        result = []
+        for row in rows:
+            nrow = {}
+            nrow["misodate"] = row["mdate"]
+            nrow["mtime"] = getTime( row["mdate"] )
+            nrow["mdate"] = getDate( row["mdate"] )
+            nrow["body_temperature"] = int2temperature(row["body_temperature"])
+            nrow["remarks"] = row["remarks"]
+            result.append(nrow)
+        return result
+    else:
+        return []
+
+def get_last_temperature(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   ORDER BY id DESC LIMIT 1""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_temperature"] = int2temperature(rows[0]["body_temperature"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def get_first_temperature(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   ORDER BY id ASC LIMIT 1""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_temperature"] = int2temperature(rows[0]["body_temperature"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def get_next_temperature(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND id > ? \
+                   ORDER BY id ASC LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_temperature"] = int2temperature(rows[0]["body_temperature"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return get_last_temperature(conn,userid)
+
+def get_previous_temperature(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND id < ? \
+                   ORDER BY id DESC LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_temperature"] = int2temperature(rows[0]["body_temperature"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return get_first_temperature(conn,userid)
+
+def get_this_temperature(conn, userid, recordId):
+    cur = conn.cursor()
+    cur.execute("""SELECT id, userid, mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   AND id = ? LIMIT 1""", (userid,recordId,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        nrow = {}
+        nrow["id"] = rows[0]["id"]
+        nrow["userid"] = rows[0]["userid"]
+        nrow["misodate"] = rows[0]["mdate"]
+        nrow["mtime"] = getTime( rows[0]["mdate"] )
+        nrow["mdate"] = getDate( rows[0]["mdate"] )
+        nrow["body_temperature"] = int2temperature(rows[0]["body_temperature"])
+        nrow["remarks"] = rows[0]["remarks"]
+        return nrow
+    else:
+        return None
+
+def is_first_temperature(conn, userid, recordId):
+    mdata = get_first_temperature(conn,userid)
+    result = True
+    if mdata == None:
+        result = True
+    elif mdata["id"] == recordId:
+        result = True
+    else:
+        result = False
+    return result
+
+def is_last_temperature(conn, userid, recordId):
+    mdata = get_last_temperature(conn,userid)
+    result = True
+    if mdata == None:
+        result = True
+    elif mdata["id"] == recordId:
+        result = True
+    else:
+        result = False
+    return result
+
+def get_temperature_five(conn, userid):
+    cur = conn.cursor()
+    cur.execute("""SELECT mdate, body_temperature, remarks \
+                   FROM temperatures \
+                   WHERE userid = ? \
+                   ORDER BY id DESC LIMIT 5""", (userid,) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        result = []
+        for row in rows:
+            nrow = {}
+            nrow["misodate"] = row["mdate"]
+            nrow["mtime"] = getTime( row["mdate"] )
+            nrow["mdate"] = getDate( row["mdate"] )
+            nrow["body_temperature"] = int2temperature(row["body_temperature"])
+            nrow["remarks"] = row["remarks"]
+            result.append(nrow)
+        return result
+    else:
+        return []
+
+
+def append_temperature(conn, userid, info):
+    cur = conn.cursor()
+    rval = True
+    mdate = makeISODate( info["mdate"], info["mtime"])
+    try:
+        cur.execute(
+        """INSERT INTO temperatures \
+        ( userid, mdate, body_temperature, remarks ) \
+        VALUES ( ?, ?, ?, ? )""",
+         (userid, mdate, temperature2int(info["body_temperature"]), info["remarks"],))
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def is_temperature( conn, userid, dataset_id ):
+    cur = conn.cursor()
+    cur.execute("""SELECT id FROM temperatures \
+                   WHERE id = ? \
+                   AND userid = ?""", (dataset_id, userid) )
+    rows = cur.fetchall()
+    if len(rows) > 0:
+        return True
+    else:
+        return False
+
+def update_temperature(conn, userid, info):
+    cur = conn.cursor()
+    rval = True
+    mdate = makeISODate( info["mdate"], info["mtime"])
+    try:
+        cur.execute(
+        """UPDATE temperatures \
+        SET mdate = ?, \
+            body_temperature = ?, \
+            remarks = ? \
+        WHERE userid = ? \
+        AND id = ?""", \
+        (mdate, temperature2int(info["body_temperature"]), info["remarks"], \
+         userid, info["id"],) )
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def delete_temperature(conn, userid, recordId):
+    cur = conn.cursor()
+    rval = True
+    try:
+        cur.execute(
+        """DELETE FROM temperatures \
+        WHERE id = ?
+        AND userid = ? LIMIT 1""",
+        (recordId, userid,) )
+    except sqlite3.OperationalError:
+        rval = False
+    except sqlite3.IntegrityError:
+        rval = False
+    conn.commit()
+    return rval
+
+def temperature2int( temperature ):
+    try:
+        inttemperature = int(round(float(temperature.replace(',', '.')),2) * 100) 
+    except (ValueError, TypeError):
+        inttemperature = 0
+    return inttemperature
+
+def int2temperature( itemperature ):
+    fltemperature = round( itemperature / 100.0, 2)
+    temperature = f"{fltemperature}"
+    if "de" in get_locale():
+        temperature.replace('.', ',')
+    return temperature
 
 
 def makeISODate ( mdate, mtime ):

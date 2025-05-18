@@ -1,0 +1,128 @@
+{% extends "temperature_layout.html" %}
+
+{% block title %}
+    {{ _("Temperature chart") }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h3>{{ _("Temperature chart") }}</h3>
+        <form action="/diastole/temperature" method = "post">
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label text-md-end">
+                    <label for="datefrom">{{ _('Date from : ') }}</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="date" id="datefrom" class="form-control" name="datefrom" maxlength="10" autocomplete="off" value="{{ filter.datefrom }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label text-md-end">
+                    <label for="dateuntil">{{ _('Date until : ') }}</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="date" id="dateuntil" class="form-control" name="dateuntil" maxlength="10" autocomplete="off" value="{{ filter.dateuntil }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="form-control" name="status" value="filter">{{ _('Filter') }}</button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="form-control" name="status" value="pdf">{{ _('Download as PDF-File') }}</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        
+
+        
+        <div class="row">
+            <div class="col-md-2 text-md-start">
+                {{ _('Last name: ') }}
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ personal["lastname"] }}
+            </div>
+            <div class="col-md-2 text-md-start">
+                &nbsp;
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ _('Date of birth: ') }}
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ personal["birthday"] }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-md-start">
+                {{ _('First name: ') }} 
+            </div>
+            <div class="col-md-4 text-md-start">
+                {{ personal["firstname"] }}
+            </div>
+            <div class="col-md-3 text-md-start">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-md-start">
+                &nbsp;
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <th colspan="2" class="text-start">
+                    {{ _('Date ') }}
+                </th>
+                <th colspan="2" class="text-start">
+                    {{ _('Time ') }}
+                </th>
+                <th colspan="2" class="text-end">
+                    {{ _('Temperature') }}
+                </th>
+                <th colspan="3" class="text-start">
+                    {{ _('Remarks') }}
+                </th>
+            </thead>
+            <tbody>
+        {% for item in temperaturechart %}
+                <tr>
+                    <td colspan="2" class="text-start">
+                        {{ item["mdate"] }}
+                    </td>
+                    <td colspan="2" class="text-start">
+                        {{ item["mtime"] }}
+                    </td>
+                    <td colspan="2" class="text-end">
+                        {{ item["body_temperature"] }} °C
+                    </td>
+                    <td colspan="3" class="text-start">
+                        {{ item["remarks"] }}
+                    </td>
+                </tr>
+        {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Temperature') }} Min.:</td>
+                    <td class="border-0 text-end">{{ mintemp }} °C</td>
+                    <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
+                    <td class="border-0 text-end">{{ maxtemp }} °C</td>
+                    <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average:') }}</td>
+                    <td class="border-0 text-end">{{ avgtemp }} °C</td>
+                </tr>
+            </tfoot>
+        </table>
+        <hr>
+    </div>            
+    
+{% endblock %}

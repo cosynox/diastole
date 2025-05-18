@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-14 18:32+0200\n"
+"POT-Creation-Date: 2025-05-18 23:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,95 +17,102 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: evaluate.py:90 weight_evaluate.py:73
+#: evaluate.py:95 temperature_evaluate.py:82 weight_evaluate.py:85
 msgid "undefined"
 msgstr ""
 
-#: evaluate.py:92
+#: evaluate.py:97
 msgid "low"
 msgstr ""
 
-#: evaluate.py:94
+#: evaluate.py:99
 msgid "optimal"
 msgstr ""
 
-#: evaluate.py:96
+#: evaluate.py:101
 msgid "normal"
 msgstr ""
 
-#: evaluate.py:98
+#: evaluate.py:103
 msgid "high-normal"
 msgstr ""
 
-#: evaluate.py:100
+#: evaluate.py:105
 msgid "grade 1 (mild hypertonia)"
 msgstr ""
 
-#: evaluate.py:102
+#: evaluate.py:107
 msgid "grade 2 (moderate hypertonia)"
 msgstr ""
 
-#: evaluate.py:104
+#: evaluate.py:109
 msgid "grade 3 (severe hypertonia)"
 msgstr ""
 
-#: evaluate.py:198
+#: evaluate.py:204 evaluate.py:318
 msgid "systolic blood pressure"
 msgstr ""
 
-#: evaluate.py:200
+#: evaluate.py:206 evaluate.py:320
 msgid "diastolic blood pressure"
 msgstr ""
 
-#: evaluate.py:202 pdftable.py:68
+#: evaluate.py:208 evaluate.py:322 pdftable.py:72
 msgid "pulse"
 msgstr ""
 
-#: evaluate.py:204 templates/weight_record.html:35 weight_evaluate.py:166
+#: evaluate.py:209 evaluate.py:235 evaluate.py:324 templates/evaluate.html:81
+msgid "Blood pressure diagram"
+msgstr ""
+
+#: evaluate.py:211 evaluate.py:325 temperature_evaluate.py:163
+#: temperature_evaluate.py:244 templates/temperature_record.html:35
+#: templates/weight_record.html:35 weight_evaluate.py:180
+#: weight_evaluate.py:269
 msgid "Date"
 msgstr ""
 
-#: evaluate.py:205
+#: evaluate.py:212 evaluate.py:326
 msgid "mmHg and Pulse"
 msgstr ""
 
-#: login.py:12 login.py:47
+#: login.py:13 login.py:57 login.py:101
 msgid "must provide username"
 msgstr ""
 
-#: login.py:16 login.py:62 login.py:113
+#: login.py:17 login.py:61 login.py:116 login.py:167
 msgid "must provide password"
 msgstr ""
 
-#: login.py:30
+#: login.py:37 login.py:81
 msgid "invalid username and/or password"
 msgstr ""
 
-#: login.py:56
+#: login.py:110
 msgid "username is already registered"
 msgstr ""
 
-#: login.py:65 login.py:116
+#: login.py:119 login.py:170
 msgid "empty password not allowed"
 msgstr ""
 
-#: login.py:71 login.py:122
+#: login.py:125 login.py:176
 msgid "must provide confirmation of password"
 msgstr ""
 
-#: login.py:74 login.py:125
+#: login.py:128 login.py:179
 msgid "Your password and the confirmation do not match"
 msgstr ""
 
-#: login.py:93
+#: login.py:147
 msgid "session data corrupted"
 msgstr ""
 
-#: login.py:104
+#: login.py:158
 msgid "duplicate userid"
 msgstr ""
 
-#: login.py:106
+#: login.py:160
 msgid "userid not found"
 msgstr ""
 
@@ -121,93 +128,134 @@ msgstr ""
 msgid "First name :"
 msgstr ""
 
-#: pdftable.py:63 templates/bpchart.html:4 templates/bpchart.html:9
-#: templates/weight_layout.html:38
+#: pdftable.py:39 templates/personal.html:41
+msgid "Body height"
+msgstr ""
+
+#: pdftable.py:67 templates/bpchart.html:4 templates/bpchart.html:9
+#: templates/temperature_layout.html:38 templates/weight_layout.html:38
 msgid "Blood pressure chart"
 msgstr ""
 
-#: pdftable.py:68 pdftable.py:145
+#: pdftable.py:72 pdftable.py:149 pdftable.py:227
 msgid "date"
 msgstr ""
 
-#: pdftable.py:68 pdftable.py:145
+#: pdftable.py:72 pdftable.py:149 pdftable.py:227
 msgid "time"
 msgstr ""
 
-#: pdftable.py:68
+#: pdftable.py:72
 msgid "systolic"
 msgstr ""
 
-#: pdftable.py:68
+#: pdftable.py:72
 msgid "diastolic"
 msgstr ""
 
-#: pdftable.py:68 pdftable.py:145
+#: pdftable.py:72 pdftable.py:149 pdftable.py:227
 msgid "remarks"
 msgstr ""
 
-#: pdftable.py:141
+#: pdftable.py:145
 msgid "Body weight chart"
 msgstr ""
 
-#: pdftable.py:145 weight_evaluate.py:164
+#: pdftable.py:149 weight_evaluate.py:177 weight_evaluate.py:266
 msgid "body weight"
 msgstr ""
 
-#: record.py:84 record.py:167 record.py:201 weight.py:84 weight.py:167
-#: weight.py:201 weight_record.py:82 weight_record.py:150
+#: pdftable.py:223 templates/temperature_chart.html:4
+#: templates/temperature_chart.html:9 templates/temperature_layout.html:21
+#: templates/temperature_layout.html:29
+msgid "Temperature chart"
+msgstr ""
+
+#: pdftable.py:227
+msgid "temperature"
+msgstr ""
+
+#: record.py:84 record.py:167 record.py:201 temperature.py:84
+#: temperature.py:167 temperature.py:201 temperature_record.py:81
+#: temperature_record.py:149 weight.py:84 weight.py:167 weight.py:201
+#: weight_record.py:82 weight_record.py:150
 msgid "Edit"
 msgstr ""
 
-#: record.py:96 weight.py:96
+#: record.py:96 temperature.py:96 weight.py:96
 msgid "Invalid systolic value"
 msgstr ""
 
-#: record.py:101 weight.py:101
+#: record.py:101 temperature.py:101 weight.py:101
 msgid "Invalid diastolic value"
 msgstr ""
 
-#: record.py:106 weight.py:106
+#: record.py:106 temperature.py:106 weight.py:106
 msgid "Invalid pulse value"
 msgstr ""
 
-#: record.py:115 weight.py:115 weight_record.py:103
+#: record.py:115 temperature.py:115 temperature_record.py:102 weight.py:115
+#: weight_record.py:103
 msgid "Invalid Date/Time format"
 msgstr ""
 
-#: record.py:133 weight.py:133 weight_record.py:121
+#: record.py:133 temperature.py:133 temperature_record.py:120 weight.py:133
+#: weight_record.py:121
 msgid "Dataset and user do not fit"
 msgstr ""
 
-#: record.py:231 weight.py:231 weight_record.py:183
+#: record.py:231 temperature.py:231 temperature_record.py:182 weight.py:231
+#: weight_record.py:183
 msgid "New"
 msgstr ""
 
-#: weight_evaluate.py:76
+#: temperature_evaluate.py:160 temperature_evaluate.py:241
+msgid "body temperature"
+msgstr ""
+
+#: temperature_evaluate.py:161 temperature_evaluate.py:188
+#: temperature_evaluate.py:243
+msgid "temperature diagram"
+msgstr ""
+
+#: temperature_evaluate.py:164 temperature_evaluate.py:245
+msgid "°C"
+msgstr ""
+
+#: temperature_record.py:93
+msgid "Invalid temperature value"
+msgstr ""
+
+#: weight_evaluate.py:88
 msgid "underweight"
 msgstr ""
 
-#: weight_evaluate.py:78
+#: weight_evaluate.py:90
 msgid "normal weight"
 msgstr ""
 
-#: weight_evaluate.py:80
+#: weight_evaluate.py:92
 msgid "pre obesity"
 msgstr ""
 
-#: weight_evaluate.py:82
+#: weight_evaluate.py:94
 msgid "obesity grade 1"
 msgstr ""
 
-#: weight_evaluate.py:84
+#: weight_evaluate.py:96
 msgid "obesity grade 2"
 msgstr ""
 
-#: weight_evaluate.py:86
+#: weight_evaluate.py:98
 msgid "obesity grade 3"
 msgstr ""
 
-#: weight_evaluate.py:167
+#: templates/weight_evaluate.html:80 weight_evaluate.py:178
+#: weight_evaluate.py:213 weight_evaluate.py:268
+msgid "Weight diagram"
+msgstr ""
+
+#: weight_evaluate.py:181 weight_evaluate.py:270
 msgid "kg"
 msgstr ""
 
@@ -215,42 +263,69 @@ msgstr ""
 msgid "Invalid weight value"
 msgstr ""
 
+#: templates/adminlogin.html:4 templates/adminlogin.html:10
+#: templates/adminlogin.html:20 templates/layout.html:48 templates/login.html:4
+#: templates/login.html:10 templates/login.html:20
+#: templates/temperature_layout.html:46 templates/weight_layout.html:46
+msgid "Log In"
+msgstr ""
+
+#: templates/adminlogin.html:15 templates/login.html:15
+#: templates/register.html:17
+msgid "Username"
+msgstr ""
+
+#: templates/adminlogin.html:18 templates/login.html:18
+#: templates/register.html:25
+msgid "Password"
+msgstr ""
+
 #: templates/bpchart.html:13 templates/evaluate.html:13
+#: templates/temperature_chart.html:13 templates/temperature_evaluate.html:13
 #: templates/weight_chart.html:13 templates/weight_evaluate.html:13
 msgid "Date from : "
 msgstr ""
 
 #: templates/bpchart.html:21 templates/evaluate.html:21
+#: templates/temperature_chart.html:21 templates/temperature_evaluate.html:21
 #: templates/weight_chart.html:21 templates/weight_evaluate.html:21
 msgid "Date until : "
 msgstr ""
 
 #: templates/bpchart.html:32 templates/evaluate.html:32
+#: templates/temperature_chart.html:32 templates/temperature_evaluate.html:32
 #: templates/weight_chart.html:32 templates/weight_evaluate.html:32
 msgid "Filter"
 msgstr ""
 
-#: templates/bpchart.html:40 templates/weight_chart.html:40
+#: templates/bpchart.html:40 templates/evaluate.html:40
+#: templates/temperature_chart.html:40 templates/temperature_evaluate.html:40
+#: templates/weight_chart.html:40 templates/weight_evaluate.html:40
 msgid "Download as PDF-File"
 msgstr ""
 
-#: templates/bpchart.html:50 templates/weight_chart.html:50
+#: templates/bpchart.html:50 templates/temperature_chart.html:50
+#: templates/weight_chart.html:50
 msgid "Last name: "
 msgstr ""
 
-#: templates/bpchart.html:59 templates/weight_chart.html:59
+#: templates/bpchart.html:59 templates/temperature_chart.html:59
+#: templates/weight_chart.html:59
 msgid "Date of birth: "
 msgstr ""
 
-#: templates/bpchart.html:67 templates/weight_chart.html:67
+#: templates/bpchart.html:67 templates/temperature_chart.html:67
+#: templates/weight_chart.html:67
 msgid "First name: "
 msgstr ""
 
-#: templates/bpchart.html:84 templates/weight_chart.html:84
+#: templates/bpchart.html:84 templates/temperature_chart.html:84
+#: templates/weight_chart.html:84
 msgid "Date "
 msgstr ""
 
-#: templates/bpchart.html:87 templates/weight_chart.html:87
+#: templates/bpchart.html:87 templates/temperature_chart.html:87
+#: templates/weight_chart.html:87
 msgid "Time "
 msgstr ""
 
@@ -266,7 +341,8 @@ msgstr ""
 msgid "Pulse"
 msgstr ""
 
-#: templates/bpchart.html:99 templates/weight_chart.html:93
+#: templates/bpchart.html:99 templates/temperature_chart.html:93
+#: templates/temperature_record.html:59 templates/weight_chart.html:93
 #: templates/weight_record.html:59
 msgid "Remarks"
 msgstr ""
@@ -276,7 +352,7 @@ msgid "Systolic BP Min:"
 msgstr ""
 
 #: templates/bpchart.html:132 templates/bpchart.html:140
-#: templates/weight_chart.html:120
+#: templates/temperature_chart.html:120 templates/weight_chart.html:120
 msgid "Average:"
 msgstr ""
 
@@ -285,40 +361,40 @@ msgid "Diastolic BP Min:"
 msgstr ""
 
 #: templates/evaluate.html:4 templates/evaluate.html:9 templates/layout.html:38
-#: templates/weight_evaluate.html:4 templates/weight_evaluate.html:9
-#: templates/weight_layout.html:37
+#: templates/temperature_evaluate.html:4 templates/temperature_evaluate.html:9
+#: templates/temperature_layout.html:37 templates/weight_evaluate.html:4
+#: templates/weight_evaluate.html:9 templates/weight_layout.html:37
 msgid "Evaluation"
 msgstr ""
 
-#: templates/evaluate.html:40 templates/weight_evaluate.html:40
+#: templates/evaluate.html:49 templates/temperature_evaluate.html:48
+#: templates/weight_evaluate.html:48
 msgid "Last name:"
 msgstr ""
 
-#: templates/evaluate.html:49 templates/weight_evaluate.html:49
+#: templates/evaluate.html:58 templates/temperature_evaluate.html:57
+#: templates/weight_evaluate.html:57
 msgid "Date of birth:"
 msgstr ""
 
-#: templates/evaluate.html:57 templates/weight_evaluate.html:57
+#: templates/evaluate.html:66 templates/temperature_evaluate.html:65
+#: templates/weight_evaluate.html:65
 msgid "First name:"
 msgstr ""
 
-#: templates/evaluate.html:72
-msgid "Blood pressure diagram"
-msgstr ""
-
-#: templates/evaluate.html:80
+#: templates/evaluate.html:89
 msgid "Systolic BP Min :"
 msgstr ""
 
-#: templates/evaluate.html:84 templates/evaluate.html:92
+#: templates/evaluate.html:93 templates/evaluate.html:101
 msgid "Average : "
 msgstr ""
 
-#: templates/evaluate.html:88
+#: templates/evaluate.html:97
 msgid "Diastolic BP Min :"
 msgstr ""
 
-#: templates/evaluate.html:96
+#: templates/evaluate.html:105
 msgid "Category : "
 msgstr ""
 
@@ -350,27 +426,21 @@ msgstr ""
 msgid "Weight"
 msgstr ""
 
-#: templates/layout.html:42 templates/weight_layout.html:41
+#: templates/layout.html:40 templates/temperature_chart.html:90
+#: templates/temperature_chart.html:116 templates/temperature_evaluate.html:88
+#: templates/temperature_record.html:26 templates/temperature_record.html:51
+msgid "Temperature"
+msgstr ""
+
+#: templates/layout.html:43 templates/temperature_layout.html:41
+#: templates/weight_layout.html:41
 msgid "Log Out"
 msgstr ""
 
-#: templates/layout.html:46 templates/register.html:4
+#: templates/layout.html:47 templates/register.html:4
 #: templates/register.html:11 templates/register.html:44
-#: templates/weight_layout.html:45
+#: templates/temperature_layout.html:45 templates/weight_layout.html:45
 msgid "Register"
-msgstr ""
-
-#: templates/layout.html:47 templates/login.html:4 templates/login.html:10
-#: templates/login.html:20 templates/weight_layout.html:46
-msgid "Log In"
-msgstr ""
-
-#: templates/login.html:15 templates/register.html:17
-msgid "Username"
-msgstr ""
-
-#: templates/login.html:18 templates/register.html:25
-msgid "Password"
 msgstr ""
 
 #: templates/personal.html:4 templates/personal.html:11
@@ -386,12 +456,8 @@ msgid "Last name : "
 msgstr ""
 
 #: templates/personal.html:33 templates/record.html:19
-#: templates/weight_record.html:19
+#: templates/temperature_record.html:19 templates/weight_record.html:19
 msgid "Date of birth : "
-msgstr ""
-
-#: templates/personal.html:41
-msgid "Body height"
 msgstr ""
 
 #: templates/personal.html:52
@@ -451,12 +517,39 @@ msgstr ""
 msgid "Save Record"
 msgstr ""
 
-#: templates/record.html:98 templates/weight_record.html:80
+#: templates/record.html:98 templates/temperature_record.html:80
+#: templates/weight_record.html:80
 msgid "New Form"
 msgstr ""
 
-#: templates/record.html:101 templates/weight_record.html:83
+#: templates/record.html:101 templates/temperature_record.html:83
+#: templates/weight_record.html:83
 msgid "Delete"
+msgstr ""
+
+#: templates/temperature_evaluate.html:80
+msgid "Temperature diagram"
+msgstr ""
+
+#: templates/temperature_evaluate.html:92 templates/weight_evaluate.html:92
+msgid "Average"
+msgstr ""
+
+#: templates/temperature_evaluate.html:96 templates/weight_evaluate.html:96
+msgid "Category"
+msgstr ""
+
+#: templates/temperature_layout.html:36 templates/temperature_record.html:4
+#: templates/temperature_record.html:11
+msgid "Record Temperature"
+msgstr ""
+
+#: templates/temperature_record.html:43 templates/weight_record.html:43
+msgid "Time"
+msgstr ""
+
+#: templates/temperature_record.html:77
+msgid "Save Temperature"
 msgstr ""
 
 #: templates/weight_chart.html:4 templates/weight_chart.html:9
@@ -472,37 +565,21 @@ msgstr ""
 msgid "Body weight Min:"
 msgstr ""
 
-#: templates/weight_evaluate.html:72
-msgid "Weight diagram"
-msgstr ""
-
-#: templates/weight_evaluate.html:80
+#: templates/weight_evaluate.html:88
 msgid "Weight Min."
 msgstr ""
 
-#: templates/weight_evaluate.html:84
-msgid "Average"
-msgstr ""
-
-#: templates/weight_evaluate.html:88
-msgid "Category"
-msgstr ""
-
-#: templates/weight_evaluate.html:90
+#: templates/weight_evaluate.html:98
 msgid "BMI"
 msgstr ""
 
-#: templates/weight_evaluate.html:90
+#: templates/weight_evaluate.html:98
 msgid "current"
 msgstr ""
 
 #: templates/weight_layout.html:36 templates/weight_record.html:4
 #: templates/weight_record.html:11
 msgid "Record Weighing"
-msgstr ""
-
-#: templates/weight_record.html:43
-msgid "Time"
 msgstr ""
 
 #: templates/weight_record.html:77

@@ -2,7 +2,7 @@ import os
 from fpdf import FPDF
 from flask import Flask, request, session, Response
 from flask_babel import Babel, lazy_gettext as _l
-from dbaccess import date_format, time_format, weight2int
+from dbaccess import date_format, time_format, weight2int,temperature2int
 from io import BytesIO
 from werkzeug import Response
 from werkzeug.datastructures import Headers
@@ -210,6 +210,84 @@ def gen_pdf_weight_chart(personal,  weights):
     # write actual pdf file to binary doc and deliver it for download
     doc = pdf.output(dest='S')
     return respond_pdf( doc, "body_weight_chart.pdf" )
+
+
+def gen_pdf_temperature_chart(personal,  temperatures): 
+    pdf = FPDF('P', 'pt', 'A4')
+    pdf.add_page()
+    leftmargin = 48
+    LINE = int(round(12 * 1.3,0))
+    pdf.set_font("Helvetica", style="", size=12)
+    s = "AB01234567"
+    width = int(round(pdf.get_string_width(s) / 10,0))
+    heading = _l("Temperature chart")
+    startpos = write_header(pdf, personal, heading)
+   # write top of page
+    positions = [ 2 * width, 12 * width, 22 * width, 38 * width ]
+    texts = [_l("date"), _l("time"), _l("temperature"), _l("remarks") ]
+    textlen = []
+    # write the table header
+    j = 0
+    startpos += 2 * LINE
+    pdf.set_font("Helvetica", style="B", size=12)
+    for position in positions:
+        s = texts[j]
+        textlen.append(pdf.get_string_width(s))
+        pdf.text(leftmargin + position, startpos, s)
+        j += 1
+
+    i = 0
+    la = 1.5
+    startpos += 1 * LINE * la
+    while i < len(temperatures):
+        pdf.set_font("Helvetica", style="", size=12)
+        printline = 0
+        while printline < 30:
+            if printline < len(temperatures):
+                # write date
+                s = str(temperatures[i]["mdate"])
+                pdf.text(leftmargin+positions[0]-6,startpos + printline * LINE * la, s )    
+                # write time 
+                s = temperatures[i]["mtime"]
+                if s.isascii() :
+                    pdf.text(leftmargin+positions[1],startpos + printline * LINE * la, s )
+                else:
+                    t = ""
+                    for c in s:
+                        if ord(c) >= 128:
+                            c = ' '
+                        if ord(c) < 32:
+                            c = ' '
+                        t = t + c
+                    pdf.text(leftmargin+positions[1],startpos + printline * LINE * la, t )
+                # write body temperature
+                temperature = round(float(temperature2int(temperatures[i]["body_temperature"]) / 100.0),2)                    
+                s = f"{temperature:.2f} °C"
+                position = leftmargin+positions[2] + pdf.get_string_width(texts[2]) - pdf.get_string_width(s)
+                pdf.text(position,startpos + printline * LINE * la, s )
+                # write remarks
+                s = temperatures[i]["remarks"]
+                position = leftmargin+positions[3]
+                pdf.text(position,startpos + printline * LINE * la, s )
+            i += 1
+            printline += 1
+        if i < len(temperatures):
+            # This is the logic for multiple pages
+            pdf.add_page()
+            startpos = write_header(pdf, personal, heading)
+            j = 0
+            startpos += 2 * LINE
+            # Here comes again the table header
+            pdf.set_font("Helvetica", style="B", size=12)
+            for position in positions:
+                s = texts[j]
+                pdf.text(leftmargin + position, startpos, s)
+                j += 1
+
+
+    # write actual pdf file to binary doc and deliver it for download
+    doc = pdf.output(dest='S')
+    return respond_pdf( doc, "body_temperature_chart.pdf" )
 
     
 def respond_pdf( doc, filename ):

@@ -1,0 +1,103 @@
+{% extends "temperature_layout.html" %}
+
+{% block title %}
+    {{ _('Evaluation') }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h3>{{ _('Evaluation') }}</h3>
+        <form action="/diastole/temperature/evaluation" method = "post">
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label  text-md-end">
+                    <label for="datefrom">{{ _('Date from : ') }} </label>
+                </div>
+                <div class="col-sm-6  text-md-start">
+                    <input type="date" class="form-control" id="datefrom" name="datefrom" maxlength="10" autocomplete="off" value="{{ filter.datefrom }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label  text-md-end">
+                    <label for="dateuntil">{{ _('Date until : ') }} </label>
+                </div>
+                <div class="col-sm-6 text-md-start">
+                    <input type="date" class="form-control" id="dateuntil" name="dateuntil" maxlength="10" autocomplete="off" value="{{ filter.dateuntil }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="form-control" name="status" value="filter">{{ _('Filter') }}</button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="form-control" name="status" value="pdf">{{ _('Download as PDF-File') }}</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        
+        <div class="row">
+            <div class="col-md-2 text-md-start">
+                {{ _('Last name:') }} 
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ personal["lastname"] }}
+            </div>
+            <div class="col-md-2 text-md-start">
+                &nbsp;
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ _('Date of birth:') }} 
+            </div>
+            <div class="col-md-2 text-md-start">
+                {{ personal["birthday"] }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-md-start">
+                {{ _('First name:') }}
+            </div>
+            <div class="col-md-4 text-md-start">
+                {{ personal["firstname"] }}
+            </div>
+            <div class="col-md-3 text-md-start">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-md-start">
+                &nbsp;
+            </div>
+        </div>
+                <h4>
+                    {{ _("Temperature diagram") }}
+                </h4>
+                <p>
+                    <img alt = "temperature diagram" src={{ dataplot }} 
+                    >
+                </p>
+        <table class="table">
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Temperature') }} Min. : </td>
+                <td class="border-0 text-end">{{ mintemp }} °C</td>
+                <td class="border-0 fw-bold text-end" colspan="2">Max:</td>
+                <td class="border-0 text-end">{{ maxtemp }} °C</td>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Average') }} : </td>
+                <td class="border-0 text-end">{{ avgtemp }} °C</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">{{ _('Category') }} : </td>
+                <td class="border-0 text-start"colspan="3" >{{ category }} </td>
+            </tr>
+        </table>
+        <hr>
+    </div>            
+    
+{% endblock %}

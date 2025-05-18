@@ -1,0 +1,93 @@
+{% extends "temperature_layout.html" %}
+
+{% block title %}
+    {{ _('Record Temperature') }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <p>
+            <h2>
+                {{ _('Record Temperature') }}
+            </h2>
+        </p>
+        <div class="row">
+            <div class="col-md-6 text-md-end">
+                {{ personal.lastname }}, {{ personal.firstname }}
+            </div>
+            <div class="col-md-4 text-md-start">
+                {{ _('Date of birth : ') }} {{ personal.birthday }}
+            </div>
+        </div>
+
+        <form action="/diastole/temperature/record" method = "post">
+            <div class="row form-group">
+                <div class="col-md-6 form-group text-md-end">
+                    <div class="red">{{ _('Temperature') }} {{ dstatus }}</div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    &nbsp;
+                    <input type="hidden" id="recordId" name="recordId" value="{{ temperature.id }}" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6 col-form-label text-md-end">
+                    <label for="mdate">{{ _('Date') }} : </label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="date"  class="form-control" id="mdate" name="mdate" maxlength="10" autofocus autocomplete="off" value="{{ temperature.mdate }}" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6 col-form-label text-md-end">
+                        <label for="mtime">{{ _('Time') }} : </label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="time"  class="form-control" id="mtime" name="mtime" maxlength="5" autofocus autocomplete="off" value="{{ temperature.mtime }}" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6 col-form-label text-md-end">
+                    <label for="mdate">{{ _('Temperature') }} in °C : </label>
+                </div>
+                <div class="col-md-4 text-md-start">
+                    <input type="text"  class="form-control" id="body_temperature" name="body_temperature" autofocus autocomplete="off" value="{{ temperature.body_temperature }}" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6 col-form-label text-md-end">
+                    <label for="remarks">{{ _('Remarks') }} : </label>
+                </div>
+                <div class="col-md-5 text-md-start">
+                    <input type="text"  class="form-control" id="remarks" name="remarks" maxlength="20" autocomplete="off" value="{{ temperature.remarks }}"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2 text-md-end">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2 text-md-end">
+                    {% if active["previous"] == True %}
+                        <button type="submit"  class="form-control" name="status" value="previous">&lt;</button>
+                    {% endif %}
+                </div>
+                <div class="col-md-3 text-md-start">
+                    <button type="submit"  class="form-control" name="status" value="save">{{ _('Save Temperature') }}</button>
+                </div>
+                <div class="col-md-3 text-md-start">
+                    <button type="submit"  class="form-control" name="status" value="new">{{ _('New Form') }}</button>
+                </div>
+                <div class="col-md-2 text-md-start">
+                    <button type="submit"  class="form-control" name="status" value="delete">{{ _('Delete') }}</button>
+                </div>
+                <div class="col-md-2 text-md-start">
+                    {% if active["next"] == True %}
+                        <button type="submit"  class="form-control" name="status" value="next">&gt;</button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

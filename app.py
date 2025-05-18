@@ -12,6 +12,10 @@ from login import user_login, user_register, user_pwchange, admin_login
 from weight_chart import weight_chart
 from weight_evaluate import weight_evaluation
 from weight_record import weight_record
+from temperature_chart import temperature_chart
+from temperature_evaluate import temperature_evaluation
+from temperature_record import temperature_record
+
 
 # Configure application
 app = Flask(__name__)
@@ -72,6 +76,21 @@ def weightrecord():
 @login_required
 def weightevaluation():
     return weight_evaluation()
+
+@app.route("/diastole/temperature", methods=["GET", "POST"])
+@login_required
+def temperaturechart():
+    return temperature_chart()
+
+@app.route("/diastole/temperature/record", methods=["GET", "POST"])
+@login_required
+def temperaturerecord():
+    return temperature_record()
+
+@app.route("/diastole/temperature/evaluation", methods=["GET", "POST"])
+@login_required
+def temperatureevaluation():
+    return temperature_evaluation()
 
 @app.route("/diastole/record", methods=["GET", "POST"])
 @login_required
