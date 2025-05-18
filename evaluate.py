@@ -327,8 +327,6 @@ def gen_pdfdiagram(personal,  measurements):
     buf = BytesIO()
     fig.savefig(buf, format="png")
     pdf.image(buf,leftmargin, startpos, w=pdf.epw)  # Make the image full width
-   # write actual pdf file to binary doc and deliver it for download
-    doc = pdf.output(dest='S')
     # write actual pdf file to binary doc and deliver it for download
     doc = pdf.output(dest='S')
     return respond_pdf( doc, "blood_pressure_diagram.pdf" )

@@ -36,6 +36,10 @@ def write_header(pdf, personal, heading):
     pdf.text(leftmargin, startpos, s)
     s = personal["firstname"]
     pdf.text(leftmargin + (12 * width), startpos, s)
+    s = _l('Body height') + " (cm):"
+    pdf.text(leftmargin + (48 * width), startpos, s)
+    s = str(personal["body_height"])
+    pdf.text(leftmargin + (64 * width), startpos, s)
     return startpos
 
 

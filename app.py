@@ -8,7 +8,7 @@ from personal import edit_personal_info
 from bpchart import blood_pressure_chart
 from record import record_measurement, record_measurement_new
 from evaluate import evaluate_measurements, plotdata
-from login import user_login, user_register, user_pwchange
+from login import user_login, user_register, user_pwchange, admin_login
 from weight_chart import weight_chart
 from weight_evaluate import weight_evaluation
 from weight_record import weight_record
@@ -114,7 +114,17 @@ def logout():
 def newpassword():
     return user_pwchange()
 
-# @app.route("/diastole/register", methods=["GET", "POST"])
+@app.route("/diastole/admin/login", methods=["GET", "POST"])
+def adminlogin():
+    """Log admin in"""
+
+    # Forget any user_id
+    session.clear()
+    return admin_login()
+
+
+@app.route("/diastole/admin/register", methods=["GET", "POST"])
+@login_required
 def register():
     """Register user"""
     # User reached route via POST (as by submitting a form via POST)

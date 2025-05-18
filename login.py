@@ -49,6 +49,50 @@ def user_login():
     else:
         return render_template("login.html")
 
+def admin_login():
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return apology(_l("must provide username"), 400)
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return apology(_l("must provide password"), 400)
+
+        conn = getDB()
+        cur = conn.cursor()
+
+        # Query database for username
+        username = request.form.get("username")
+        cur.execute("SELECT id, pwhash, retries FROM users WHERE username = ?", (username,))
+        rows = cur.fetchall()
+        # Ensure username exists and password is correct
+        if len(rows) != 1 or not check_password_hash(
+            rows[0][1], request.form.get("password")
+        ):
+            if len(rows) == 1:
+                if rows[0][2] > 0:
+                    sleep(5*rows[0][2]) # make retries slower and slower
+                retries = rows[0][2] + 1               
+                cur.execute( "UPDATE users SET retries = ? WHERE id = ? LIMIT 1", (retries,rows[0][0],))
+                conn.commit()
+            conn.close()
+            return apology(_l("invalid username and/or password"), 400)
+        
+        cur.execute("UPDATE users SET retries = 0, last_login = current_timestamp WHERE id = ? LIMIT 1", (rows[0][0],)) 
+        conn.commit()
+        conn.close()
+        # Remember which user has logged in
+        session["user_id"] = rows[0][0]
+
+        # Redirect user to home page
+        return redirect("/diastole/admin/register")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("adminlogin.html")
+
 def user_register():
     if request.method == "POST":
         # Ensure username was submitted
