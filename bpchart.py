@@ -14,6 +14,7 @@ from dbaccess import getDB, \
                     getDate, date_format, time_format
 
 from pdftable import gen_pdfchart
+from csvtable import export_csv_blood_pressure
 
 def blood_pressure_chart():
     """ Generate a blood pressure chart
@@ -103,6 +104,8 @@ def blood_pressure_chart():
                             avgsystole,
                             avgdiastole,
                             avgpulse)
+    elif status == "csv":
+        return export_csv_blood_pressure(measurements)
     else:   
         return render_template( "bpchart.html",                             
                            personal = personal,

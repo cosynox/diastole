@@ -15,6 +15,7 @@ from dbaccess import getDB, \
                     weight2int
 
 from pdftable import gen_pdf_weight_chart
+from csvtable import export_csv_weight
 
 def weight_chart():
     """ Generate a Body weight chart
@@ -72,6 +73,8 @@ def weight_chart():
     conn.close()
     if status == "pdf":
         return gen_pdf_weight_chart(personal,  weights)
+    elif status == "csv":
+        return export_csv_weight(weights)
     else:   
         return render_template( "weight_chart.html",                             
                            personal = personal,

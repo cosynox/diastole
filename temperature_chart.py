@@ -13,6 +13,7 @@ from dbaccess import getDB, \
                     temperature2int
 
 from pdftable import gen_pdf_temperature_chart
+from csvtable import export_csv_temperature
 
 def temperature_chart():
     """ Generate a Body temperature chart
@@ -69,7 +70,9 @@ def temperature_chart():
     # do something
     conn.close()
     if status == "pdf":
-        return gen_pdf_temperature_chart(personal,  temperatures)
+        return gen_pdf_temperature_chart(personal,  temperatures)   
+    elif status == "csv":
+        return export_csv_temperature(temperatures)
     else:   
         return render_template( "temperature_chart.html",                             
                            personal = personal,

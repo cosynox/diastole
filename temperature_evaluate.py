@@ -172,8 +172,8 @@ def temperature_plotdata():
     ax = fig.subplots()
 #    ax.set_xbound(lower=minx-1, upper=maxx+1)
 #    ax.set_xlim(minx-1, maxx+1)
-    ax.set_ybound(lower=miny-1, upper=maxy+1)
-    ax.set_ylim(miny-2, maxy+2)
+    ax.set_ybound(lower=miny-0.1, upper=maxy+0.1)
+    ax.set_ylim(miny-0.1, maxy+0.1)
 
     # Text in the x-axis will be displayed in 'YYYY-mm-dd' format.
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
@@ -254,8 +254,8 @@ def gen_pdftemperaturediagram(personal,  temperatures):
     ax = fig.subplots()
 #    ax.set_xbound(lower=minx-1, upper=maxx+1)
 #    ax.set_xlim(minx-1, maxx+1)
-    ax.set_ybound(lower=miny-1, upper=maxy+1)
-    ax.set_ylim(miny-2, maxy+2)
+    ax.set_ybound(lower=miny-0.1, upper=maxy+0.1)
+    ax.set_ylim(miny-0.1, maxy+0.1)
     # Text in the x-axis will be displayed in 'YYYY-mm-dd' format.
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     # Rotates and right-aligns the x labels so they don't crowd each other.
