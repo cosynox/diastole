@@ -261,7 +261,7 @@ def gen_pdf_temperature_chart(personal,  temperatures):
                         t = t + c
                     pdf.text(leftmargin+positions[1],startpos + printline * LINE * la, t )
                 # write body temperature
-                temperature = round(float(temperature2int(temperatures[i]["body_temperature"]) / 100.0),2)                    
+                temperature = round(float(temperature2int(temperatures[i]["body_temperature"]) / 100.0),1)                    
                 s = f"{temperature:.2f} °C"
                 position = leftmargin+positions[2] + pdf.get_string_width(texts[2]) - pdf.get_string_width(s)
                 pdf.text(position,startpos + printline * LINE * la, s )

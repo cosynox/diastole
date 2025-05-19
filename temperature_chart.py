@@ -43,7 +43,7 @@ def temperature_chart():
         status = request.args.get("status")
         temperatures = get_temperatures(conn, userid, None)
     if len(temperatures) > 0:
-        fltemperature = round(float(temperature2int(temperatures[0]["body_temperature"]) / 100.0),2)
+        fltemperature = round(float(temperature2int(temperatures[0]["body_temperature"]) / 100.0),1)
         mintemperature = fltemperature 
         maxtemperature = fltemperature
     else:
@@ -54,7 +54,7 @@ def temperature_chart():
     for data in temperatures:
         data["mdate"] = date_format(data["mdate"])
         data["mtime"] = time_format(data["mtime"])
-        temperature = round(float(temperature2int(data["body_temperature"]) /100.0),2)
+        temperature = round(float(temperature2int(data["body_temperature"]) /100.0),1)
         if mintemperature > temperature:
             mintemperature = temperature
         if maxtemperature < temperature:

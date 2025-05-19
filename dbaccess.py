@@ -720,13 +720,13 @@ def delete_temperature(conn, userid, recordId):
 
 def temperature2int( temperature ):
     try:
-        inttemperature = int(round(float(temperature.replace(',', '.')),2) * 100) 
+        inttemperature = int(round(float(temperature.replace(',', '.')),1) * 100) 
     except (ValueError, TypeError):
         inttemperature = 0
     return inttemperature
 
 def int2temperature( itemperature ):
-    fltemperature = round( itemperature / 100.0, 2)
+    fltemperature = round( itemperature / 100.0, 1)
     temperature = f"{fltemperature}"
     if "de" in get_locale():
         temperature.replace('.', ',')

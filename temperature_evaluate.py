@@ -51,7 +51,7 @@ def temperature_evaluation():
     temperatures = get_temperatures(conn, userid, filter)
     if len(temperatures) > 0:
         try:
-            mintemperature = float(temperatures[0]["body_temperature"]) 
+            mintemperature = round(float(temperatures[0]["body_temperature"]),1) 
             maxtemperature = mintemperature
             lasttemperature = mintemperature
         except IndexError:
@@ -66,7 +66,7 @@ def temperature_evaluation():
     sumtemperature = 0
     n = 0
     for data in temperatures:
-        fltemperature =  float(data["body_temperature"])
+        fltemperature =  round(float(data["body_temperature"]),1)
         if mintemperature > fltemperature:
             mintemperature = fltemperature
         if maxtemperature < fltemperature:
@@ -150,7 +150,7 @@ def temperature_plotdata():
     for data in temperatures:
         x = datetime.datetime.fromisoformat(data["misodate"])
         x_axis.append(x)
-        fltemperature =  float(data["body_temperature"]) 
+        fltemperature =  round(float(data["body_temperature"]),1) 
         if minx == -1:
             minx = x
             maxx = x
@@ -231,7 +231,7 @@ def gen_pdftemperaturediagram(personal,  temperatures):
     for data in temperatures:
         x = datetime.datetime.fromisoformat(data["misodate"])
         x_axis.append(x)
-        fltemperature =  float(data["body_temperature"]) 
+        fltemperature =  round(float(data["body_temperature"]),1) 
         if minx == -1:
             minx = x
             maxx = x
