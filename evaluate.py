@@ -17,6 +17,7 @@ from dbaccess import getDB, \
                     get_personal_info, date_format
 
 from pdftable import write_header, respond_pdf
+from statistic import calculatetimeseries
 
 def evaluate_measurements():
     """ Evaluate the measurements of a person
@@ -158,9 +159,11 @@ def plotdata():
     maxx = 0
     miny = 0
     maxy = 0
+    xdata = []
     for data in measurements:
         x = datetime.datetime.fromisoformat(data["misodate"])
         x_axis.append(x)
+        xdata.append(data["misodate"])
         if minx == -1:
             minx = x
             maxx = x
@@ -187,6 +190,9 @@ def plotdata():
         y_diastole.append(data["diastole"])
         y_pulse.append(data["pulse"])
 
+    y_systole_trend = calculatetimeseries( xdata, y_systole)
+    y_diastole_trend = calculatetimeseries( xdata, y_diastole)
+    y_pulse_trend = calculatetimeseries( xdata, y_pulse)
     size = 8 / 2.54 
     fig = Figure(figsize=(8,6), dpi=80)
     ax = fig.subplots()
@@ -202,10 +208,16 @@ def plotdata():
 
     line, = ax.plot(x_axis, y_systole, color='red', marker="D", linewidth=2)
     line.set_label(_l('systolic blood pressure'))
+    line, = ax.plot(x_axis, y_systole_trend, color='red', linestyle='dotted')
+    line.set_label(_l('trend systolic blood pressure'))
     line, = ax.plot(x_axis, y_diastole, color='green', marker="s", linewidth=2)
     line.set_label(_l('diastolic blood pressure'))
+    line, = ax.plot(x_axis, y_diastole_trend, color='green', linestyle='dotted')
+    line.set_label(_l('trend diastolic blood pressure'))
     line, = ax.plot(x_axis, y_pulse, color='blue', linestyle='dashed', marker="o", linewidth=2)
     line.set_label(_l('pulse'))
+    line, = ax.plot(x_axis, y_pulse_trend, color='blue', linestyle='dotted')
+    line.set_label(_l('trend pulse'))
     ax.set_title(_l("Blood pressure diagram"), loc='center')
     ax.legend()
     ax.set_xlabel(_l('Date'), fontsize=15)
@@ -272,9 +284,11 @@ def gen_pdfdiagram(personal,  measurements):
     maxx = 0
     miny = 0
     maxy = 0
+    xdata = []
     for data in measurements:
         x = datetime.datetime.fromisoformat(data["misodate"])
         x_axis.append(x)
+        xdata.append(data["misodate"])
         if minx == -1:
             minx = x
             maxx = x
@@ -301,6 +315,9 @@ def gen_pdfdiagram(personal,  measurements):
         y_diastole.append(data["diastole"])
         y_pulse.append(data["pulse"])
 
+    y_systole_trend = calculatetimeseries( xdata, y_systole)
+    y_diastole_trend = calculatetimeseries( xdata, y_diastole)
+    y_pulse_trend = calculatetimeseries( xdata, y_pulse)
     size = 8 / 2.54 
     fig = Figure(figsize=(8,6), dpi=300)
     ax = fig.subplots()
@@ -316,12 +333,18 @@ def gen_pdfdiagram(personal,  measurements):
 
     line, = ax.plot(x_axis, y_systole, color='red', marker="D", linewidth=2)
     line.set_label(_l('systolic blood pressure'))
+    line, = ax.plot(x_axis, y_systole_trend, color='red', linestyle='dotted')
+    line.set_label(_l('trend systolic blood pressure'))
     line, = ax.plot(x_axis, y_diastole, color='green', marker="s", linewidth=2)
     line.set_label(_l('diastolic blood pressure'))
+    line, = ax.plot(x_axis, y_diastole_trend, color='green', linestyle='dotted')
+    line.set_label(_l('trend diastolic blood pressure'))
     line, = ax.plot(x_axis, y_pulse, color='blue', linestyle='dashed', marker="o", linewidth=2)
     line.set_label(_l('pulse'))
-    ax.legend()
+    line, = ax.plot(x_axis, y_pulse_trend, color='blue', linestyle='dotted')
+    line.set_label(_l('trend pulse'))
     ax.set_title(_l("Blood pressure diagram"), loc='center')
+    ax.legend()
     ax.set_xlabel(_l('Date'), fontsize=15)
     ax.set_ylabel(_l('mmHg and Pulse'), fontsize=15)
     buf = BytesIO()
