@@ -149,8 +149,9 @@ def register():
     # User reached route via POST (as by submitting a form via POST)
     return user_register()
 
-@app.route("/diastole/plotimage")
-@login_required
-def plotimage():
-    return f"<img src='{plotdata()}'/>"
-
+"""
+    @app.route("/diastole/plotimage")
+    @login_required
+    def plotimage():
+        return f"<img src='{plotdata()}'/>"
+"""

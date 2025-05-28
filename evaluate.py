@@ -31,22 +31,28 @@ def evaluate_measurements():
     status = ""
     personal = get_personal_info(conn, userid)
     personal["birthday"] = date_format(personal["birthday"])
-    if request.method == "GET":
+    if request.method == "POST":
+
+        tmp = request.form.get("datefrom")
+        if len(tmp) > 0:
+            filter["datefrom"] = tmp
+
+        tmp = request.form.get("dateuntil")
+        if len(tmp) > 0:
+            filter["dateuntil"] = tmp
+
+        status = request.form.get("status")
+
+    else:
         tmp = request.args.get("datefrom", "")
         if len(tmp) > 0:
             filter["datefrom"] = tmp
+
         tmp = request.args.get("dateuntil", "")
         if len(tmp) > 0:
             filter["dateuntil"] = tmp
+
         status = request.args.get("status")
-    elif request.method == "POST":
-        tmp = request.form.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.form.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-        status = request.form.get("status")
 
     measurements = get_measurements(conn, userid, filter)
     if len(measurements) > 0:
@@ -114,7 +120,7 @@ def evaluate_measurements():
     if status == 'pdf':
         return gen_pdfdiagram(personal,  measurements)
     else:
-        myimage = plotdata() 
+        myimage = plotdata(measurements) 
         return render_template( "evaluate.html",
                            dataplot = myimage,                             
                            personal = personal,
@@ -130,27 +136,7 @@ def evaluate_measurements():
                            avgdiastole = avgdiastole,
                            avgpulse = avgpulse )
 
-def plotdata():
-    userid = session["user_id"]
-    conn = getDB()
-    filter = {}
-    filter["datefrom"] = ""
-    filter["dateuntil"] = ""
-    if request.method == "GET":
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    else:
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    measurements = get_measurements(conn, userid, filter)
+def plotdata(measurements):
     x_axis = []
     y_systole = []
     y_diastole = []
@@ -256,26 +242,6 @@ def gen_pdfdiagram(personal,  measurements):
     la = 1.5
     startpos += 1 * LINE * la
 
-    userid = session["user_id"]
-    conn = getDB()
-    filter = {}
-    filter["datefrom"] = ""
-    filter["dateuntil"] = ""
-    if request.method == "GET":
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    else:
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    measurements = get_measurements(conn, userid, filter)
     x_axis = []
     y_systole = []
     y_diastole = []

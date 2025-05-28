@@ -30,24 +30,30 @@ def weight_evaluation():
     status = ""
     personal = get_personal_info(conn, userid)
     personal["birthday"] = date_format(personal["birthday"])
-    if request.method == "GET":
+
+    if request.method == "POST":
+
+        tmp = request.form.get("datefrom")
+        if len(tmp) > 0:
+            filter["datefrom"] = tmp
+
+        tmp = request.form.get("dateuntil")
+        if len(tmp) > 0:
+            filter["dateuntil"] = tmp
+
+        status = request.form.get("status")
+
+    else:
         tmp = request.args.get("datefrom", "")
         if len(tmp) > 0:
             filter["datefrom"] = tmp
+
         tmp = request.args.get("dateuntil", "")
         if len(tmp) > 0:
             filter["dateuntil"] = tmp
+
         status = request.args.get("status")
 
-    elif request.method == "POST":
-        tmp = request.form.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.form.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-        status = request.form.get("status")
-    
     weights = get_weights(conn, userid, filter)
     if len(weights) > 0:
         try:
@@ -101,7 +107,7 @@ def weight_evaluation():
     if status == 'pdf':
         return gen_pdfweightdiagram(personal,  weights)
     else:
-        myimage = weight_plotdata()
+        myimage = weight_plotdata(weights)
         return render_template( "weight_evaluate.html",
                            dataplot = myimage,                             
                            personal = personal,
@@ -112,27 +118,7 @@ def weight_evaluation():
                            avgweight = avgweight,
                            bmi = bmi)
 
-def weight_plotdata():
-    userid = session["user_id"]
-    conn = getDB()
-    filter = {}
-    filter["datefrom"] = ""
-    filter["dateuntil"] = ""
-    if request.method == "GET":
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    else:
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    weights = get_weights(conn, userid, filter)
+def weight_plotdata(weights):
     x_axis = []
     y_weight = []
     minx = -1

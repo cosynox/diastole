@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-19 14:54+0200\n"
+"POT-Creation-Date: 2025-05-21 01:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 msgid "diastolic"
 msgstr ""
 
-#: csvtable.py:14 csvtable.py:26 evaluate.py:208 evaluate.py:322 pdftable.py:72
+#: csvtable.py:14 csvtable.py:26 evaluate.py:218 evaluate.py:343 pdftable.py:72
 msgid "pulse"
 msgstr ""
 
@@ -52,58 +52,70 @@ msgstr ""
 msgid "body_temperature"
 msgstr ""
 
-#: evaluate.py:95 temperature_evaluate.py:82 weight_evaluate.py:85
+#: evaluate.py:96 temperature_evaluate.py:82 weight_evaluate.py:85
 msgid "undefined"
 msgstr ""
 
-#: evaluate.py:97
+#: evaluate.py:98
 msgid "low"
 msgstr ""
 
-#: evaluate.py:99
+#: evaluate.py:100
 msgid "optimal"
 msgstr ""
 
-#: evaluate.py:101
+#: evaluate.py:102
 msgid "normal"
 msgstr ""
 
-#: evaluate.py:103
+#: evaluate.py:104
 msgid "high-normal"
 msgstr ""
 
-#: evaluate.py:105
+#: evaluate.py:106
 msgid "grade 1 (mild hypertonia)"
 msgstr ""
 
-#: evaluate.py:107
+#: evaluate.py:108
 msgid "grade 2 (moderate hypertonia)"
 msgstr ""
 
-#: evaluate.py:109
+#: evaluate.py:110
 msgid "grade 3 (severe hypertonia)"
 msgstr ""
 
-#: evaluate.py:204 evaluate.py:318
+#: evaluate.py:210 evaluate.py:335
 msgid "systolic blood pressure"
 msgstr ""
 
-#: evaluate.py:206 evaluate.py:320
+#: evaluate.py:212 evaluate.py:337
+msgid "trend systolic blood pressure"
+msgstr ""
+
+#: evaluate.py:214 evaluate.py:339
 msgid "diastolic blood pressure"
 msgstr ""
 
-#: evaluate.py:209 evaluate.py:235 evaluate.py:324 templates/evaluate.html:81
+#: evaluate.py:216 evaluate.py:341
+msgid "trend diastolic blood pressure"
+msgstr ""
+
+#: evaluate.py:220 evaluate.py:345
+msgid "trend pulse"
+msgstr ""
+
+#: evaluate.py:221 evaluate.py:247 evaluate.py:346 templates/evaluate.html:81
 msgid "Blood pressure diagram"
 msgstr ""
 
-#: evaluate.py:211 evaluate.py:325 temperature_evaluate.py:188
+#: evaluate.py:223 evaluate.py:348 temperature_evaluate.py:188
 #: temperature_evaluate.py:269 templates/temperature_record.html:35
 #: templates/weight_record.html:35 weight_evaluate.py:180
 #: weight_evaluate.py:269
 msgid "Date"
 msgstr ""
 
-#: evaluate.py:212 evaluate.py:326
+#: evaluate.py:224 evaluate.py:349
 msgid "mmHg and Pulse"
 msgstr ""
 

@@ -30,24 +30,29 @@ def temperature_evaluation():
     status = ""
     personal = get_personal_info(conn, userid)
     personal["birthday"] = date_format(personal["birthday"])
-    if request.method == "GET":
+    if request.method == "POST":
+
+        tmp = request.form.get("datefrom")
+        if len(tmp) > 0:
+            filter["datefrom"] = tmp
+
+        tmp = request.form.get("dateuntil")
+        if len(tmp) > 0:
+            filter["dateuntil"] = tmp
+
+        status = request.form.get("status")
+
+    else:
         tmp = request.args.get("datefrom", "")
         if len(tmp) > 0:
             filter["datefrom"] = tmp
+
         tmp = request.args.get("dateuntil", "")
         if len(tmp) > 0:
             filter["dateuntil"] = tmp
+
         status = request.args.get("status")
 
-    elif request.method == "POST":
-        tmp = request.form.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.form.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-        status = request.form.get("status")
-    
     temperatures = get_temperatures(conn, userid, filter)
     if len(temperatures) > 0:
         try:
@@ -110,7 +115,7 @@ def temperature_evaluation():
     if status == 'pdf':
         return gen_pdftemperaturediagram(personal,  temperatures)
     else:
-        myimage = temperature_plotdata()
+        myimage = temperature_plotdata(temperatures)
         return render_template( "temperature_evaluate.html",
                            dataplot = myimage,                             
                            personal = personal,
@@ -120,27 +125,7 @@ def temperature_evaluation():
                            maxtemp = maxtemperature,
                            avgtemp = avgtemperature)
 
-def temperature_plotdata():
-    userid = session["user_id"]
-    conn = getDB()
-    filter = {}
-    filter["datefrom"] = ""
-    filter["dateuntil"] = ""
-    if request.method == "GET":
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    else:
-        tmp = request.args.get("datefrom", "")
-        if len(tmp) > 0:
-            filter["datefrom"] = tmp
-        tmp = request.args.get("dateuntil", "")
-        if len(tmp) > 0:
-            filter["dateuntil"] = tmp
-    temperatures = get_temperatures(conn, userid, filter)
+def temperature_plotdata(temperatures):
     x_axis = []
     y_temperature = []
     minx = -1
