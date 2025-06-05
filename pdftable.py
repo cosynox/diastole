@@ -87,8 +87,8 @@ def gen_pdfchart(personal,  measurements,
     while i < len(measurements):
         pdf.set_font("Helvetica", style="", size=12)
         printline = 0
-        while printline < 30:
-            if printline < len(measurements):
+        while printline < 28:
+            if printline < len(measurements) and i < len(measurements):
                 s = str(measurements[i]["mdate"])
                 pdf.text(leftmargin+positions[0]-6,startpos + printline * LINE * la, s )
                 s = measurements[i]["mtime"]
@@ -129,6 +129,7 @@ def gen_pdfchart(personal,  measurements,
                 s = texts[j]
                 pdf.text(leftmargin + position, startpos, s)
                 j += 1
+            startpos += 1 * LINE * la
 
     # write actual pdf file to binary doc and deliver it for download
     doc = pdf.output(dest='S')
@@ -164,8 +165,8 @@ def gen_pdf_weight_chart(personal,  weights):
     while i < len(weights):
         pdf.set_font("Helvetica", style="", size=12)
         printline = 0
-        while printline < 30:
-            if printline < len(weights):
+        while printline < 28:
+            if printline < len(weights) and i < len(weights):
                 # write date
                 s = str(weights[i]["mdate"])
                 pdf.text(leftmargin+positions[0]-6,startpos + printline * LINE * la, s )    
@@ -205,7 +206,7 @@ def gen_pdf_weight_chart(personal,  weights):
                 s = texts[j]
                 pdf.text(leftmargin + position, startpos, s)
                 j += 1
-
+            startpos += 1 * LINE * la
 
     # write actual pdf file to binary doc and deliver it for download
     doc = pdf.output(dest='S')
@@ -242,8 +243,8 @@ def gen_pdf_temperature_chart(personal,  temperatures):
     while i < len(temperatures):
         pdf.set_font("Helvetica", style="", size=12)
         printline = 0
-        while printline < 30:
-            if printline < len(temperatures):
+        while printline < 28:
+            if printline < len(temperatures) and i < len(temperatures):
                 # write date
                 s = str(temperatures[i]["mdate"])
                 pdf.text(leftmargin+positions[0]-6,startpos + printline * LINE * la, s )    
@@ -283,6 +284,7 @@ def gen_pdf_temperature_chart(personal,  temperatures):
                 s = texts[j]
                 pdf.text(leftmargin + position, startpos, s)
                 j += 1
+            startpos += 1 * LINE * la
 
 
     # write actual pdf file to binary doc and deliver it for download
